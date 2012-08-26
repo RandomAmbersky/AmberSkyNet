@@ -1,0 +1,71 @@
+<?
+//                                  +                                     
+
+header('Content-Type: text/html; charset=windows-1251');
+?>
+
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=ambernet.css>
+<meta http-equiv="content-type" content="text/html; charset=windows-1251"> 
+</style>
+</head>
+<body>
+<center>
+<table width=80% border=0><tr><td>
+<center><img src=AmberSkyNet.jpg width=10%></center>
+<blockquote>
+- Что ты строишь, господин? Что это будет?<br>
+- Ничего, естественно. Ведь все, что я создаю,<br> разваливается на части...<br>
+(Р.Желязны, Д.Линдскольд "Доннерджек")<br>
+</blockquote>
+<div><h2>Cкачать проект</h2> на данной стадии можно только из SVN,
+выполнив в консоли команду <br>
+<b>svn checkout https://ambernet.svn.sourceforge.net/svnroot/ambernet/trunk  ambernet</b>
+<br>
+либо используя какой-нибудь графический клиент Subversion, например TortoiseSVN
+</div>
+<div>
+
+<div><h2>Собрать из исходников</h2>
+Для компиляции проекта под Linux потребуется утилита CMake, 
+для компиляции под Windows - IDE Code::Blocks.<br>
+
+В проекте используются библиотеки SDL, SDL_image, SDL_mixer, SDL_net, FreeType.<br>
+В случае компиляции под Linux их необходимо установить из репозиториев вашего дистрибутива либо скачать с оффсайтов.<br>
+
+Для компиляции под Windows дополнительно скачивать ничего не потребуется - всё необходимое лежит в папках bin/binw и projects/CodeBlocks/extlib/</b>.
+</div>
+<br>
+
+<div><h3>под Linix</h3> можно при помощи утилиты CMake, выполнив в консоли
+в корневом директории проекта команды <br>
+<b> cmake .<br>
+make</b><br>
+
+<h3>под Windows</h3>
+установив предварительно Code::Blocks запускаем файл проекта AmberSkyNetVR_modules.workspace
+в папке projects/CodeBlocks, после чего в открывшейся среде разработки выбираем в
+верхнем меню пункт Build/Build.
+
+</div>
+<br>
+
+<div><h2>Полезные ссылки</h2>
+<li>http://subversion.apache.org/ - сайт Subversion (SVN)
+<li>http://tortoisesvn.tigris.org/ - сайт утилиты TortoiseSVN
+<li>http://www.cmake.org/ - сайт утилиты CMake
+<li>http://www.libsdl.org/ - сайт набора библиотек SDL
+<li>http://www.codeblocks.org/ - сайт IDE Code::Blocks
+</div>
+
+
+<!--div align=right>[Powered by <a href=http://fireforge.org>FireForge</a>]</div -->
+<div>Powered by:
+<A href="http://sourceforge.net"><IMG align=center src="http://sourceforge.net/sflogo.php?group_id=121759&amp;type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A>
+</div>
+
+</table>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<WorldSimple3D >
+
+<CameraSimple>
+  <EvListCamWalker />
+  <EvListCamLooker />
+</CameraSimple>
+
+<NodeBase ShowSize="1" >
+  <NodeHeightMap Name="myTerrain" Pos="0 0 0" Size="100 100 25" HeightMap="4.jpg" SizeFromHeightMap="0" Detail="100" />
+</NodeBase>
+
+</WorldSimple3D >

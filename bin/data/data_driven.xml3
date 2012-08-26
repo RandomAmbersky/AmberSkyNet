@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+
+<WorldSimple3D >
+
+<CameraSimple>
+  <EvListCamWalker />
+  <EvListCamLooker />
+</CameraSimple>
+
+<NodeBase ShowSize="1" >
+
+  <NodeGrid2D Pos="0 0 50" Size="215 215 10" NumX="10" NumY="10" ShowGrid="1" />
+
+</NodeBase>
+</World >

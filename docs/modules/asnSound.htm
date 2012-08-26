@@ -1,0 +1,35 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80%><tr><td>
+<h1 class=header1 align=center>[ asnSound ]</h1>
+<blockquote>
+</blockquote>
+
+<p>Плагин asnSound служит для проигрывания фоновой мелодии и звуковых эффектов</p>
+
+<h3 class=header3 align=center>Переменные плагина</h3>
+Переменные плагина на данный момент хранятся не в самом плагине, а читаются из глобальных
+переменных окружения Engine (GetEnvParam, SetEnvParam).
+
+<ul>
+<li>[SoundManager]SoundEnabled - включать ли звук или нет. Engine пробует загрузить
+менеджер звука с именем, заданым в параметре [Modules]SoundManager если параметр
+установлен в 1. Если параметр установлен в 0, загрузки менеджера звука не происходит.
+Если попытка инициализации звука менеджером не удалась, значение тоже устанавливается в 0.
+</ul>
+</p>
+
+<p>В прикладной программе важно анализировать параметр [SoundManager]SoundEnabled
+после инициализации движка, и отключать вызовы функций SOUND->PlayFX и SOUND->PlayMusic, 
+если его значение равно 0. Иначе всё может рухнуть, т.к. если менеджер
+звука не инициализирован, то SOUND будет равен NULL...</p>
+
+</body>
+</html>

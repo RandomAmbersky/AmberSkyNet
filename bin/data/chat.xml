@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<!--file Name="base.xml" /-->
+<World>
+<NodeBase>
+   <!--NodeSprite Pos="1 1 1" Rot="0 0 0" Size="100 100 1" Texture="4.jpg" ShowSize="1" />
+   <NodeGUI_TextBox Name="Cons1" Rot="90 -90 0" Pos="100 100 1" Size="100 100 1" Texture="fronttop.bmp" ListName="#gamedev" />
+   <LogoAmberSkyNet Pos="-10 10 105" ShowSize="1" /-->
+</NodeBase>
+</World>

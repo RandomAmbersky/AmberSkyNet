@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<file Name="base.xml" />
+
+<WorldSimple3D >
+
+<CameraSimple>
+  <EvListCamWalker />
+  <EvListCamLooker />
+</CameraSimple>
+
+<NodeBase ShowSize="1" >
+  <NodeSkyCube Size="10 10 10" Texture="orion_nebula.jpg"/>
+</NodeBase>
+</World >

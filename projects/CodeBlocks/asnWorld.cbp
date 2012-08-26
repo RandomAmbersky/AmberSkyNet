@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="asnWorld" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Windows">
+				<Option platforms="Windows;" />
+				<Option output="..\..\bin\binw\plugins\asnWorld.dll" prefix_auto="0" extension_auto="0" />
+				<Option object_output=".obj" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="Linux">
+				<Option platforms="Unix;" />
+				<Option output="..\..\bin\binl\plugins\asnWorld.so" prefix_auto="0" extension_auto="0" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Windows;Linux;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add directory="..\..\include" />
+			<Add directory="..\..\src\asnCommon" />
+		</Compiler>
+		<Unit filename="..\..\include\ASN_Params.cpp" />
+		<Unit filename="..\..\include\ASN_Params.h" />
+		<Unit filename="..\..\include\IBaseObject.h" />
+		<Unit filename="..\..\include\INode.h" />
+		<Unit filename="..\..\include\INodeModifier.h" />
+		<Unit filename="..\..\include\IWorld.h" />
+		<Unit filename="..\..\include\Interfaces\ASNIWorld3D.h" />
+		<Unit filename="..\..\src\asnCommon\ASN_SafeVector_template.h" />
+		<Unit filename="..\..\src\asnCommon\ASN_utils.cpp" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.cpp" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.h" />
+		<Unit filename="..\..\src\asnCommon\Parser_utils.cpp" />
+		<Unit filename="..\..\src\asnWorld\CModifierPack.cpp" />
+		<Unit filename="..\..\src\asnWorld\CModifierPack.h" />
+		<Unit filename="..\..\src\asnWorld\CModifiers.cpp" />
+		<Unit filename="..\..\src\asnWorld\CModifiers.h" />
+		<Unit filename="..\..\src\asnWorld\CWorld.cpp" />
+		<Unit filename="..\..\src\asnWorld\CWorld.h" />
+		<Unit filename="..\..\src\asnWorld\CWorldSimple3D.cpp" />
+		<Unit filename="..\..\src\asnWorld\CWorldSimple3D.h" />
+		<Unit filename="..\..\src\asnWorld\asnWorld.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

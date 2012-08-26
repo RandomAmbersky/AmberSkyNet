@@ -1,0 +1,42 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=../ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80%><tr><td>
+<h1 class=header1 align=center><a href=index.htm>[ AmberSkyNet ]</a></h1>
+<blockquote>
+</blockquote>
+
+<h2 class=header2 align=center>[ HTTP_Client ]</h1>
+
+<p>Наследуется от: <a href=../arhitect/INetProtocolHandler.htm>INetProtocolHanlder</a>, CBaseObject.</a>
+
+<p>Класс реализует обработку запросов-ответов к серверу по протоколу HTTP.</p>
+<h3 class=header3 align=center>Переменные класса</h3>
+<p>Имена переменных заданы аналогично описанию протокола в RFC 2068.</p>
+
+<li>[Header]Status-Code - код ответа сервера
+<li>[Header]HTTP-Version - версия HTTP в ответе сервера
+<li>[Header]Reason-Phrase - причина
+<li>[Header]... - прочие параметры, передаваемые в заголовке ответа сервера
+
+<li>LoadSize - суммарный обьем загруженных данных
+<li>Buffer - текущий обьем буфера
+<li>BufferSize - размер "окна" для приема данных, максимальный обьем буфера
+
+<h3 class=header3 align=center>Указатели класса</h3>
+Особых указателей нет, см. указатели в <a href=../arhitect/INetProtocolHandler.htm>INetProtocolHanlder</a>
+
+<h3 class=header3 align=center>Handler-функция</h3>
+
+<p>Класс в параметр info передаёт указатель на начало буфера, содержащего принятые данные.
+Размер буфера можно получить из переменной Buffer.
+</p>
+
+</body>
+</html>

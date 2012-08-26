@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<file Name="base.xml" />
+<World>
+<NodeBase>
+  <!-- Brilliant island -->
+  <NodeSLTerrain Type="NodeSLTerrain" Pos="0 0 0"
+    TerrainFileName="brilliant_terrain.raw" TextureFileName="grass.jpg"
+    ShowGround="1" ShowWater="1" WaterHeight="45" NumPointReduction="2"
+  />
+  <Column Pos="222 128 50.5" ModelScale="20" />
+  <!-- Open Sea -->
+  <NodeSLTerrain Type="NodeSLTerrain" Pos="255 0 0" ShowGround="0" WaterHeight="45"/>
+  <!-- Logo in air -->
+  <--LogoAmberSkyNet Pos="-10 10 105"/-->
+  <!-- Designer rules -->
+  <NodeRuler Type="NodeRuler" Pos="0 0 0"/> <!-- horisontal, OX -->
+  <NodeRuler Type="NodeRuler" Pos="0 0 0" Rot="0 0 90"/> <!-- horisontal,OY -->
+  <NodeRuler Type="NodeRuler" Pos="0 0 0" Rot="0 -90 0"/> <!-- vertical, OZ -->
+</NodeBase>
+</World>

@@ -1,0 +1,28 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="btCollisionPairCallback",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="btOverlapCallback",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbtOverlapCallback.html"];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_dispatcher" ,fontname="Helvetica"];
+  Node3 [label="btCollisionDispatcher",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtCollisionDispatcher.html",tooltip="btCollisionDispatcher supports algorithms that handle ConvexConvex and ConvexConcave collision pairs..."];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="btDispatcher",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtDispatcher.html",tooltip="btDispatcher can be used in combination with broadphase to dispatch overlapping pairs."];
+  Node5 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_nearCallback" ,fontname="Helvetica"];
+  Node5 [label="btBroadphasePair",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbtBroadphasePair.html",tooltip="contains a pair of aabb-overlapping objects"];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_algorithm" ,fontname="Helvetica"];
+  Node6 [label="btCollisionAlgorithm",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtCollisionAlgorithm.html",tooltip="btCollisionAlgorithm is an collision interface that is compatible with the Broadphase and btDispatche..."];
+  Node4 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_dispatcher" ,fontname="Helvetica"];
+  Node7 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_pProxy0\nm_pProxy1" ,fontname="Helvetica"];
+  Node7 [label="btBroadphaseProxy",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbtBroadphaseProxy.html",tooltip="btBroadphaseProxy"];
+  Node8 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_doubleDispatch\nm_compoundCreateFunc\nm_swappedConvexConcaveCreateFunc\nm_emptyCreateFunc\nm_swappedCompoundCreateFunc\nm_convexConcaveCreateFunc\nm_convexConvexCreateFunc" ,fontname="Helvetica"];
+  Node8 [label="btCollisionAlgorithmCreateFunc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbtCollisionAlgorithmCreateFunc.html",tooltip="Used by the btCollisionDispatcher to register and create instances for btCollisionAlgorithm."];
+  Node9 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_defaultManifoldResult" ,fontname="Helvetica"];
+  Node9 [label="btManifoldResult",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtManifoldResult.html",tooltip="btManifoldResult is a helper class to manage contact results."];
+  Node10 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="btDiscreteCollisionDetectorInterface::Result",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbtDiscreteCollisionDetectorInterface_1_1Result.html"];
+  Node11 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_dispatchInfo" ,fontname="Helvetica"];
+  Node11 [label="btDispatcherInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbtDispatcherInfo.html"];
+}

@@ -1,0 +1,37 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80%><tr><td>
+<h1 class=header1 align=center>[ asnDataParser ]</h1>
+<blockquote>
+</blockquote>
+
+<p>Плагин служит для парсинга данных из файлов формата XML.
+Для начала через менеджер файловой системы
+необходимо получить указатель на текстовые данные в памяти, после чего
+передать этот указатель в парсер через функцию StartParse.
+</p>
+
+<p>Получить указатель на текстовые данные можно, например, вот так:<br>
+<pre><b>// FileName - имя XML-файла данных.
+IFile *myFile=FILER->GetFile( FileName );
+if (!myFile) return true; //файла нет такого
+myFile->FileOpen();
+void *data=myFile->LoadInMem();
+if (myFile->GetState()!=ASN_FILE_DISK_IN_MEM) return true; // не грузится он :(
+</b></pre>
+В результате в переменной data получаем указатель на данные.
+</p>
+<h3 class=header3 align=center>Переменные плагина</h3>
+Пока нет...
+</p>
+
+
+</body>
+</html>

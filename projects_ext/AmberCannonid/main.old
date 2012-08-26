@@ -1,0 +1,607 @@
+#include "EngineStarter.h"
+//#include "Interfaces/ASNIWorld3D.h"
+
+#include <stdlib.h>
+
+class GridCell {
+public:
+
+GridCell(float w_,float h_){
+    h = h_;
+    w = w_;
+};
+
+int mx; // координаты на карте
+int my;
+float x; // координаты в пространстве
+float y;
+float w_x; //размеры в пространстве
+float w_y;
+
+float w; //ширина €чейки карты
+float h;//высота €чейки карты
+
+void SetPos(INode* myNode){
+
+    CVector pos = myNode->getPos();
+    CVector size = myNode->getSize();
+    mx = (int) ( (pos.v[0]+size.v[0]/2.0f) / w );
+    my = (int) ( (pos.v[1]+size.v[1]/2.0f) / h );
+
+
+    x = mx * w;
+    y = my * h;
+
+    printf("%f %f %d %d\n", x, y, mx, my);
+
+}
+
+void SetPos(CVector pos, float sx, float sy){ //позици€, размер по х по у
+
+    mx = (int) ( (pos.v[0]+sx/2.0f) / w );
+    my = (int) ( (pos.v[1]+sy/2.0f) / h );
+
+
+    x = mx * w;
+    y = my * h;
+
+//    printf("%f %f %d %d\n", x, y, mx, my);
+
+}
+
+};
+
+
+IWorld* myWorld;
+ICamera* myCam;
+
+INode* bitok;
+INode* sharik;
+INode* backgr;
+
+GridCell* sharik_c;
+
+INode* GamePole[10][5];
+
+enum GameState{
+GAME_MENU =0,
+GAME_PROCESS,
+GAME_OVER
+};
+
+GameState game_state=GAME_MENU;
+
+bool look_in_mouse=false;
+bool k_MouseClick=false;
+bool on_board = true; // шарик на битке
+
+float FrameInterval=0;
+float bitok_spd = 60;
+float bitok_dx=0;
+float sharik_dy=0;
+float sharik_dx=0;
+CVector bitok_pos;
+CVector bitok_rot;
+
+float bitok_size = 0;
+float sharik_size = 0;
+
+int score=0;
+int lives=0;
+int blocks=0;
+
+CVector sharik_pos;
+
+#define RANDOM(x) (rand() % (x))
+INode* CreateBaseNode(std::string NodeType)
+{
+    printf("create base node %s...\n",NodeType.c_str());
+    UINT tmpId=myWorld->createNode( NodeType.c_str() );
+    INode* myNode = myWorld->getNode( tmpId );
+    return myNode;
+};
+
+////// ”ничтожить объект сцены ///////
+void DestroyFlyingObject(INode *node)
+{
+    INode *tmpNode=CreateBaseNode("Explode");
+    tmpNode->setPos ( node->getPos() );
+    node->Release();
+    //    delete node;
+    //    ItemsNum--;
+};
+
+
+ void RandomColor( INode* myNode ){
+ char buf[1024];
+        sprintf(buf,"%f %f %f",RANDOM(100)/100.0f, RANDOM(100)/100.0f, RANDOM(100)/100.0f);
+    printf("Color : %s\n", buf);
+    myNode->SetParam("Color",buf);
+ }
+
+bool CheckPole( int n_x, int n_y) {
+
+//return false;
+
+//printf("DEL FU NODE %d %d\n", n_x, n_y);
+
+if (n_x<0) return false;
+if (n_x>9) return false;
+if (n_y<0) return false;
+if (n_y>4) return false;
+
+if ( GamePole[n_x][n_y]!=NULL ) {
+
+//    if (RANDOM(10)>-1) { RandomColor(GamePole[n_x][n_y]); return true;}
+
+    printf("DEL FU NODE %d %d\n", n_x, n_y);
+    DestroyFlyingObject( GamePole[n_x][n_y] );
+//    if(SOUND) SOUND->PlayFX("cell.wav");
+//    sharik_dy = -sharik_dy;
+    score+=10;
+    blocks--;
+    GamePole[n_x][n_y]=NULL; return true;
+}
+return false;
+};
+
+void Collide(int n_x,int n_y){
+
+
+    if (( n_x*10<sharik_pos.v[0] ) && ( sharik_pos.v[0] < (n_x+1)*10) ){
+//        if (sharik_dy>0) sharik_pos.v[0]=n_x*10-sharik_size;
+//        else sharik_pos.v[0]=n_x*11;
+
+        sharik_dy = -sharik_dy;
+        sharik_pos = sharik->getPos();
+
+    };
+
+    if (( (n_y+5)*10<sharik_pos.v[1] ) && ( sharik_pos.v[1] < (n_y+5+1)*10) )
+{
+
+//        if (sharik_dx>0) sharik_pos.v[1]=(n_y+5)*10-sharik_size;
+//        else sharik_pos.v[1]=(n_y+5)*11;
+
+        sharik_dx = -sharik_dx;
+        sharik_pos = sharik->getPos();
+    };
+
+}
+
+void CheckGrid(){
+
+
+//int n_x = (int)sharik_pos.v[0]/10;
+//int n_y = (int)sharik_pos.v[1]/10-5;
+
+int n_x = sharik_c->mx;
+int n_y = sharik_c->my-5;
+
+//bool collide = false;
+
+if (CheckPole( n_x, n_y )) Collide( n_x, n_y );
+
+//if ( !need_action ) return collide;
+/*
+if (!collide) {
+n_x=(int)(sharik_pos.v[0])/10;
+n_y=(int)(sharik_pos.v[1]+sharik_size)/10-5;
+if (CheckPole( n_x, n_y)) collide = true;
+};
+
+if (!collide) {
+n_x=(int)(sharik_pos.v[0]+sharik_size)/10;
+n_y=(int)(sharik_pos.v[1])/10-5;
+if (CheckPole( n_x, n_y)) collide = true;
+};
+
+if (!collide) {
+n_x=(int)(sharik_pos.v[0]+sharik_size)/10;
+n_y=(int)(sharik_pos.v[1]+sharik_size)/10-5;
+if (CheckPole( n_x, n_y)) collide = true;
+};
+*/
+
+//if (collide)
+
+
+
+//        sharik_pos = sharik_pos + CVector(sharik_dx*FrameInterval, sharik_dy*FrameInterval, 0);
+
+
+//    if ( fabs(sharik_dx)>fabs(sharik_dy))
+//    {sharik_dx = -sharik_dx; sharik_pos.v[0]=n_x*10;
+//    }
+//    else
+//    {sharik_dy = -sharik_dy; sharik_pos.v[1]=(n_y+5)*10;
+//
+//    }
+
+//printf("%d %d\n", n_x, n_y);
+
+//if (n_y<0) return;
+
+//if (CheckPole( n_x, n_y)) { if ( fabs(sharik_dx)>fabs(sharik_dy)) sharik_dx = -sharik_dx; else sharik_dy = -sharik_dy; return;}
+//if (n_x == 10) return;
+//if (n_y == 10) return;
+//if (CheckPole( n_x+1, n_y)) { if ( abs(sharik_dx)>abs(sharik_dy)) sharik_dx = -sharik_dx; else sharik_dy = -sharik_dy; return;}
+//if (CheckPole( n_x, n_y+1)) { if ( abs(sharik_dx)>abs(sharik_dy)) sharik_dx = -sharik_dx; else sharik_dy = -sharik_dy; return;}
+//if (CheckPole( n_x+1, n_y+1)) { if ( abs(sharik_dx)>abs(sharik_dy)) sharik_dx = -sharik_dx; else sharik_dy = -sharik_dy; return;}
+
+//printf("%d %d\n", n_x, n_y);
+
+//    return collide;
+}
+
+
+void SetParams(INode* myNode, int x, int y){
+
+  CVector Pos = CVector( x*10, y*10, 0  );
+  CVector Size = CVector( 10, 10, 1 );
+
+  myNode->setPos( Pos );
+  myNode->setSize( Size );
+//  myNode->setRot( CVector(45,0,0));
+
+  RandomColor( myNode );
+
+//CVector Color = CVector( RANDOM(100)/100.0f, RANDOM(100)/100.0f, RANDOM(100)/100.0f );
+//char buf[1024];
+//sprintf(buf,"%f %f %f",RANDOM(100)/100.0f, RANDOM(100)/100.0f, RANDOM(100)/100.0f);
+//printf("Color : %s\n", buf);
+//myNode->SetParam("Color",buf);
+
+GamePole[x][y-5]=myNode;
+blocks++;
+printf("game pole %d, %d\n",x, y-5);
+
+
+//myNode->Release();
+//GamePole[x][y-5]=NULL;
+
+};
+
+void CreateCell(int x, int y)
+{
+
+    SetParams( CreateBaseNode("Kegl1"), x, y  );
+
+};
+
+void CreateGrid(){
+for (int i=0;i<10;i++){
+    for (int j=0;j<5;j++){
+        if (GamePole[i][j]!=NULL) GamePole[i][j]->Release();
+    }
+}
+
+
+  for (int i=0;i<10;i++){
+    for (int j=0;j<5;j++){
+        //if (RANDOM(10)>8)
+        CreateCell( i,  5+j);
+    }
+  }
+
+};
+
+void CreatePole(){
+
+blocks=0;
+CreateGrid();
+
+  bitok->setSize( CVector( 20, 5, 1) );
+  bitok->setPos( CVector( 50, -5, 1) );
+
+  bitok_pos = bitok->getPos();
+  CVector size = bitok->getSize();
+  bitok_size = size.v[0];
+
+  sharik->setPos( CVector( 0, 50, 0) );
+  sharik_pos = sharik->getPos();
+  sharik->setSize( CVector(5,5,1) );
+
+  on_board=true;
+  score=0;
+  lives=0;
+
+  size = sharik->getSize();
+  sharik_size = size.v[0];
+
+
+};
+
+//#include <iostream>
+//using namespace std;
+
+void BitokClick(){
+    if (!on_board) return;
+    on_board=false;
+    sharik_dx = 0;
+    sharik_dy = bitok_spd;
+    if(SOUND) SOUND->PlayFX("rikoshet.wav");
+};
+
+void BitokCatch(){
+    float catch_size = sharik_pos.v[0] - bitok_pos.v[0];
+//    printf("%f %f %f\n", catch_size, bitok_pos.v[0], sharik_pos.v[0]);
+    if (catch_size > bitok_size) {lives+=1; on_board=true; bitok_dx=0; if(SOUND) SOUND->PlayFX("ball_fail.wav"); }
+    if (catch_size < -sharik_size) {lives+=1; on_board=true; bitok_dx=0; if(SOUND) SOUND->PlayFX("ball_fail2.wav"); }
+    else {
+
+//    printf("%f %f %f\n", catch_size, catch_size+sharik_size, (catch_size+sharik_size)/(bitok_size+2*sharik_size)  );
+    float ugol = (catch_size+sharik_size)/(bitok_size+2*sharik_size);
+
+
+//	  catch_size+=sharik_size;
+//        float ugol = (catch_size - 0.5*(bitok_size+sharik_size))/(0.5*(bitok_size+sharik_size));
+
+        sharik_dy = fabs(bitok_spd*(1.0-ugol));
+        if (sharik_dy<10) sharik_dy=5;
+        if (sharik_dx>0) sharik_dx = sqrt( bitok_spd*bitok_spd - sharik_dy*sharik_dy );
+        else sharik_dx = -sqrt( bitok_spd*bitok_spd - sharik_dy*sharik_dy );
+
+        printf("%f %f %f\n", ugol, sharik_dx, sharik_dy );
+
+        sharik_pos.v[1] = 1.0;
+        if(SOUND) SOUND->PlayFX("rikoshet.wav");
+    }
+};
+
+void MoveBitokSharik(){
+//    cout << DEVICER->FrameInterval << endl;
+    bitok_pos.v[0] = bitok_pos.v[0] + bitok_dx*FrameInterval;
+    if ( bitok_pos.v[0] <0 ) {bitok_dx = 0; bitok_pos.v[0]=0; if(SOUND) SOUND->PlayFX("bell.wav");}
+    if ( bitok_pos.v[0]+bitok_size >100 ) {bitok_dx = 0; bitok_pos.v[0]=100-bitok_size; if(SOUND) SOUND->PlayFX("bell.wav");}
+
+//    bitok_rot.v[2] = bitok_rot.v[2] + bitok_dx*DEVICER->FrameInterval;
+
+    bitok->setPos( bitok_pos );
+
+    if (on_board) {
+        sharik_pos.v[1] = 0;
+//        printf("%f %f %f\n", sharik_pos.v[0], bitok_size/2.0f, sharik_size/2.f);
+        sharik_pos.v[0] = bitok_pos.v[0] + bitok_size/2.0f - sharik_size/2.0f;
+        sharik->setPos( sharik_pos );
+
+    } else {
+
+        if ( sharik_pos.v[0] <0 ) { sharik_pos.v[0]=0; sharik_dx = -sharik_dx; if(SOUND) SOUND->PlayFX("bell.wav");}
+        if ( sharik_pos.v[0]+sharik_size >100 ) { sharik_pos.v[0]=100-sharik_size; sharik_dx = -sharik_dx; if(SOUND) SOUND->PlayFX("bell.wav");}
+        if ( sharik_pos.v[1]+sharik_size >100 ) { sharik_pos.v[1]=100-sharik_size; sharik_dy = -sharik_dy; if(SOUND) SOUND->PlayFX("bell.wav");}
+
+        if ( sharik_pos.v[1] <0 ) { sharik_pos.v[1]=0; BitokCatch(); }
+
+         sharik_pos = sharik_pos + CVector(sharik_dx*FrameInterval, sharik_dy*FrameInterval, 0);
+         sharik_c->SetPos( sharik_pos, sharik_size, sharik_size );
+//         sharik->setPos( sharik_pos );
+
+    }
+//    bitok->setRot( bitok_rot );
+};
+
+bool UpdateCallback(void *Params)
+{
+  FrameInterval = DEVICER->FrameInterval;
+
+  int evt=EVENTER->GetInput();
+
+    // цикл - пока не прочитали все событи€
+    while (evt!=ASN_EVNT_EMPTY)
+    {
+
+       if (evt==ASN_QUIT)
+        {
+            return true;
+        }
+        if (evt==ASN_EVNT_KEYUP)
+        {
+          bitok_dx=0;
+        }
+        else if (evt==ASN_EVNT_KEYPRESSED)
+        {
+            if (EVENTER->getLastKey()==27)
+            {
+                if (game_state==GAME_PROCESS) {game_state=GAME_MENU; backgr->SetParam("Texture", "background3.png");
+
+                for (int i=0;i<10;i++){
+    for (int j=0;j<5;j++){
+        if (GamePole[i][j]) GamePole[i][j]->Release();
+        GamePole[i][j]=NULL;
+    }
+}
+                }
+                else return true;
+            }
+
+//            else if (EVENTER->getLastKey()==9)
+//            {
+//                look_in_mouse=!look_in_mouse;
+//                DEVICER->CenterMouse(!look_in_mouse);
+//            }
+
+            else if (EVENTER->getLastKey()==316)
+            {
+                DEVICER->MakeScreenshot("screenshot");
+                printf("Shoot!\n");
+            }
+
+            else if (EVENTER->getLastKey()==ASNK_z)
+            {
+                bitok_dx = - bitok_spd;
+            }
+
+            else if (EVENTER->getLastKey()==ASNK_c)
+            {
+                bitok_dx = bitok_spd;
+            }
+
+            else if (EVENTER->getLastKey()==ASNK_x)
+            {
+                if (game_state==GAME_MENU) { game_state=GAME_PROCESS; backgr->SetParam("Texture", "background.jpg");
+                if (SOUND) SOUND->PlayFX("stupid.wav"); CreatePole(); }
+                else if (on_board) BitokClick();
+            }
+
+
+        };
+
+       evt=EVENTER->GetInput();
+    }
+
+
+
+if (game_state==1) {
+
+//    CheckGrid();
+    MoveBitokSharik();
+    CheckGrid();
+//     ) {
+
+     //while ( !CheckGrid(false) ) {
+         //sharik_pos = sharik_pos + CVector(sharik_dx*FrameInterval, sharik_dy*FrameInterval, 0);
+         //}
+
+     //}
+
+    sharik->setPos( sharik_pos );
+
+    if (blocks==0){
+        game_state=GAME_OVER;
+
+        backgr->SetParam("Texture", "background2.jpg");
+        if (SOUND) SOUND->PlayFX("stupid.wav");
+
+        }
+
+    };
+
+   return false;
+};
+
+bool DrawCallback(void* Params)
+{
+
+char buf[1024];
+
+if (game_state==1) {
+   myCam->View();
+   myWorld->Draw();
+
+   DEVICER->StartMode2D(true);
+   DEVICER->SetFontSize(0.001);
+   //CVector4 Color(0,0,0);
+   DEVICER->SetColor( CVector4(0,1,1,1) );
+   sprintf(buf,"FLAME: %d", score/5);
+   DEVICER->SetFontSize(0.0015);
+   DEVICER->PrintAt(0.02,0.01,"ƒл€ конкурса GameDev.ru");
+   DEVICER->SetFontSize(0.001);
+   DEVICER->PrintAt(0.01,0.9,buf);
+   sprintf(buf,"LIVES: %d", lives);
+   DEVICER->PrintAt(0.8,0.9,buf);
+
+/*   CVector pos=myCam->getPos();
+  float RotX, RotY;
+    myCam->getRot(RotX, RotY);
+    sprintf(buf,
+            "FPS: %d    X:%5.1f   Y:%5.1f   Z:%5.1f   rX:%5.1f   rY:%5.1f",
+            DEVICER->FPS,
+            pos.v[0], pos.v[1], pos.v[2],
+            RotX, RotY
+    );
+    DEVICER->PrintAt(20,410,buf);
+*/
+
+   DEVICER->EndMode2D();
+
+}
+else if (game_state==0) {
+myCam->View();
+myWorld->Draw();
+//myCam->View();
+
+//myCam->setPos( CVector(-93,48,126) );
+//myCam->setRotY( -32 );
+
+//DEVICER->PushMatrix();
+//DEVICER->Rotate( CVector(90,-90,0) );
+//DEVICER->SetScale( CVector(0.5,0.5,0.5) );
+
+//DEVICER->StartMode2D(true);
+//DEVICER->PrintAt(-180,130,"ƒл€ конкурса GameDev.ru");
+//DEVICER->EndMode2D();
+
+// DEVICER->PopMatrix();
+
+
+}
+else if (game_state==2) {
+myCam->View();
+myWorld->Draw();
+}
+
+   return true;
+};
+
+int main(int argc, char *argv[]){
+
+  ENGINE_INIT(argc, argv);
+
+  if (!ENGINE) {  // ENGINE указывает в NULL - загрузить не получилось :(
+  fprintf(stderr,"Can't load main Engine module! Exiting...\n");
+  exit (1);
+  };
+
+  myWorld = ENGINE->CreateWorld("World");
+  if (!myWorld) { LogError(0,"Sorry, WorldSimple-plugin not found :("); return 1; }
+
+  printf("World created.\n");
+
+  UINT cam_id = myWorld->addCamera("CameraSimple");
+  myCam = myWorld->getCamera(cam_id);
+
+  myCam->setPos( CVector(50.7,9.9,81.4) );
+  myCam->setRotX( 90.0 );
+  myCam->setRotY( -72.0 );
+  myCam->setScreen(0,0,1,1);
+
+// загружаем в наш мир карту
+  myWorld->LoadWorld( "map.xml" );
+//printf("Map loaded.\n");
+
+  ENGINE->SetPtrParam("UpdateCallback",(void*)UpdateCallback);
+  ENGINE->SetPtrParam("DrawCallback",(void*)DrawCallback);
+
+  bitok = CreateBaseNode("Bitok");
+
+  sharik = CreateBaseNode("Sharik");
+  sharik_c = new GridCell( 10, 10 );
+
+  backgr = CreateBaseNode("Back");
+
+//  RandomColor( bitok );
+//  RandomColor( sharik );
+//  RandomColor( backgr );
+
+//  backgr->SetParam("Texture", "background3.png");
+
+for (int i=0;i<10;i++){
+    for (int j=0;j<5;j++){
+        GamePole[i][j]=NULL;
+    }
+}
+
+//IEventListener *myList = EVENTER->AddEventListener( "EvListCamWalker" );
+//myList->SetPtrParam("Camera",myCam);
+//myList = EVENTER->AddEventListener( "EvListCamLooker" );
+//myList->SetPtrParam("Camera",myCam);
+
+
+  if(SOUND) SOUND->PlayMusic("alehandro.wav");
+  ENGINE->EngineStart();
+
+   printf("----End----\n");
+
+return 0;
+};

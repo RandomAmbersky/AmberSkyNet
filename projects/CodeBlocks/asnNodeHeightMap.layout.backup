@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="All" />
+	<File name="..\..\src\asnCommon\lod_terrain.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="586" topLine="57" />
+	</File>
+	<File name="..\..\src\asnCommon\lod_terrain.h" open="0" top="0" tabpos="0">
+		<Cursor position="390" topLine="2" />
+	</File>
+</CodeBlocks_layout_file>

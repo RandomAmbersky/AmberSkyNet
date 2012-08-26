@@ -1,0 +1,78 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=../ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80% border=0><tr><td>
+<h1 class=header1><a href=../index_doc.htm>[ AmberSkyNet VR ]</a></h1>
+
+<blockquote>
+А внутре у нее.. гм.. неонка<br>
+(А. и Б. Стругацкие "Сказка о Тройке")
+</blockquote>
+
+<h2 class=header2>Архитектура движка</h2>
+
+<h3 class=header3>Интерфейсные классы движка</h3>
+
+<p>Схему организации основных интерфейсных классов движка (с точки зрения внешней программы)
+можно посмотреть <a href=diagramm_ASN.png>[тут]</a>. Серым цветом показаны 
+интерфейсные классы, используемые исключительно внутри модулей движка.
+Доступ из внешней программы к ним отсутствует.</p>
+
+<p>Интерфейсные классы верхнего уровня:</p>
+<ul>
+<li><a href=IEngine.htm>IEngine</a> - основной класс
+</ul>
+
+<ul>
+<li><a href=IEventManager.htm>IEventManager</a> - менеджер событий
+<li><a href=IEventListener.htm>IEventListener</a> - "слушатель" событий
+</ul>
+
+<ul>
+<li><a href=IWorld.htm>IWorld</a> - менеджер мира
+<li><a href=INode.htm>INode</a> - узел сцены
+<li><a href=IModifierPack.htm>IModifierPack</a> - список модификаторов сцены
+<li><a href=INodeModifier.htm>INodeModifier</a> - модификатор узла сцены
+</ul>
+
+<ul>
+<li><a href=ISound.htm>ISound</a> - менеджер звука
+</ul>
+
+<ul>
+<li><a href=IDevice.htm>IDevice</a> - менеджер графики
+<li><a href=IMaterial.htm>IMaterial</a> - материал
+<li><a href=IDrawObject.htm>IDrawObject</a> - меш (геометрия)
+<li><a href=ICamera.htm>ICamera</a> - камера для наблюдения сцены
+</ul>
+
+<ul>
+<li><a href=INetSupervisor.htm>INetSupervisor</a> - менеджер сети
+<li><a href=INetProtocolHandler.htm>INetProtocolHandler</a> - обработчик сетевого протокола
+</ul>
+
+<ul>
+<li><a href=IDataParser.htm>IDataParser</a> - парсер данных
+</ul>
+
+<ul>
+<li><a href=ILog.htm>ILog</a> - менеджер логов
+</ul>
+
+<ul>
+<li><a href=IFileSystem.htm>IFileSystem</a> - менеджер файловой системы
+<li><a href=IFile.htm>IFile</a> - доступ к файлу
+</ul>
+
+</table>
+<div>Powered by:
+<A href="http://sourceforge.net"><IMG align=center src="http://sourceforge.net/sflogo.php?group_id=121759&amp;type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A>
+</div>
+</body>
+</html>

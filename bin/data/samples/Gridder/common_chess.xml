@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<BaseObject>
+
+ <WhiteCS Type="NodeSprite" Texture="s1.png" Size="1 1 1" />
+ <BlackCS Type="NodeSprite" Texture="s2.png" Size="1 1 1" />
+
+ <Chessboard Type="NodeSprite" Texture="chessboard3.jpg" Size="1 1 1" />
+
+</BaseObject>

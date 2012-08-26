@@ -1,0 +1,135 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=../ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80% border=0><tr><td>
+<h1 class=header1><a href=../index_doc.htm>[ AmberSkyNet VR ]</a></h1>
+
+<blockquote>
+</blockquote>
+
+<h2 class=header2>Модули движка</h2>
+
+<ul>
+
+<li>asnEngine - главный модуль
+    <ul>
+    <li>CEngine
+    <li>CPluginFactory
+    <li>CResourceSystem
+    <li>CTextList
+    </ul>
+
+<li>asnDataParser - парсер данных
+    <ul>
+    <li>CDataParserXML - парсер xml
+    </ul>
+
+<li>asnDeviceGL - ввод-вывод
+    <ul>
+    <li>DeviceGL - графический менеджер
+    <li>CCamera - камера
+    <li>СEventManagerSDL - менеджер событий на основе SDL
+    <li>EvListCamWalker - "слушатель" передвижения камеры клавишами
+    <li>EvListCamLooker - "слушатель" обозрения камеры мышкой
+    </ul>
+
+<li>asnFileSystem - файловая система
+    <ul>
+    <li>CFileSystem - менеджер файловой системы
+    <li>CFileSystemASN - менеджер ФС с учетом особенностей AmberNet
+    <li>CFileSource - источник дисковых данных
+    <li>CFileSourceZIP - источник данных из файлов формата zip
+    </ul>
+
+<li>asnLog - менеджеры логов
+    <ul>
+    <li>CLog - менеджер txt-лога
+    <li>CLogNo - "заглушка" менеджера логов
+    </ul>
+
+<li>asnNetHTTP - реализация HTTP-протокола
+    <ul>
+    <li>CFileSourceHTTP - источник данных с веб-сервера (HTTP)
+    <li><a href=HTTP_Client.htm>HTTP_Client</a> - обработчик протокола HTTP
+    </ul>
+
+<li>asnNetSupervisor - модуль сети
+    <ul>
+    <li>CNetSupervisor - менеджер сети
+    <li>NH_IRC - обработчик протокола IRC
+    </ul>
+
+<li>asnNode3ds - работа с 3ds-моделями
+    <ul>
+    <li>CNode3ds - узел сцены в виде 3ds-модели
+    <li>CNode - "пустой" узел сцены
+    </ul>
+
+<li>asnNodeGUI_Simple - простые элементы GUI
+    <ul>
+    <li>CNodeGUI_TextBox - узел сцены в виде прямоугольника с текстом
+    </ul>
+    
+<li>asnNodeHeightMap - карта высот
+    <ul>
+    <li>CNodeHeightMap - узел сцены в виде ланшдафта, построенного по карте высот
+    </ul>
+
+<li>asnNodeRuler - линейка
+    <ul>
+    <li>CNodeRuler - узел сцены в виде линейки
+    </ul>
+    
+<li>asnNodeSLTerrain - карта высот на основе SecondLife-террайнов
+    <ul>
+    <li>CNodeSLTerrain - узел сцены в виде ландшафта, построенного по карте высот формата SecondLife
+    </ul>
+
+<li>asnNodeSprite - спрайты
+    <ul>
+    <li>CNodeSprite - узел сцены в виде анимированного спрайта
+    </ul>
+
+<li>asnNodeSctiptManager - менеджер скриптов
+    <ul>
+    <li>CScriptManagerLua - менеджер скриптов на языке Lua
+    </ul>
+
+<li>asnSound - менеджер звука
+    <ul>
+    <li>CSoundSDL_mixer - менеджер звука на основе библиотеки SDL_mixer
+    </ul>
+
+<li>asnWorld - менеджер мира
+    <ul>
+    <li>CWorld - простой менеджер мира
+    <li>CWorldSimple3D - менеджер 3d-мира
+    <li>CModifierPack - список модификаторов узлов сцены
+    <li>CModifRotate - модификатор вращения узла сцены
+    </ul>
+
+</ul>
+
+<h2 class=header2 align=center>Принятые наименования типов классов:</h2>
+<p> xxx - краткая модификация имени, отражающая суть плагина
+<li>FileSystemxxx - менеджер файловой системы
+<li>Soundxxx - менеджер звука
+<li>FSxxx - источник файлов
+<li>Logxxx - менеджер лог-файлов
+<li>Worldxxx - менеджер мира
+<li>Nodexxx - узел сцены
+<li>EvListxxx - "слушатель" событий (IEventListener)
+</p>
+
+</table>
+<div>Powered by:
+<A href="http://sourceforge.net"><IMG align=center src="http://sourceforge.net/sflogo.php?group_id=121759&amp;type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A>
+</div>
+</body>
+</html>

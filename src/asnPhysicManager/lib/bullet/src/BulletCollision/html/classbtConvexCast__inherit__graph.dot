@@ -1,0 +1,12 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="btConvexCast",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="btContinuousConvexCollision",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtContinuousConvexCollision.html",tooltip="btContinuousConvexCollision implements angular and linear time of impact for convex objects..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="btGjkConvexCast",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtGjkConvexCast.html",tooltip="GjkConvexCast performs a raycast on a convex object using support mapping."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="btSubsimplexConvexCast",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtSubsimplexConvexCast.html",tooltip="btSubsimplexConvexCast implements Gino van den Bergens&#39; paper &quot;Ray Casting against bteral Convex Obje..."];
+}

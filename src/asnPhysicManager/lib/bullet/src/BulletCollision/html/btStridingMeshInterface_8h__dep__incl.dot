@@ -1,0 +1,31 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="btStridingMeshInterface.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="btTriangleMeshShape.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$btTriangleMeshShape_8h.html"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="btCollisionWorld.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$btCollisionWorld_8cpp.html"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="btBvhTriangleMeshShape.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$btBvhTriangleMeshShape_8h.html"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="btBvhTriangleMeshShape.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$btBvhTriangleMeshShape_8cpp.html"];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="btTriangleMeshShape.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$btTriangleMeshShape_8cpp.html"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="btConvexTriangleMeshShape.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$btConvexTriangleMeshShape_8cpp.html"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="btOptimizedBvh.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$btOptimizedBvh_8cpp.html"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="btStridingMeshInterface.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$btStridingMeshInterface_8cpp.html"];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="btTriangleIndexVertexArray.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$btTriangleIndexVertexArray_8h.html"];
+  Node10 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="btTriangleIndexVertexArray.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$btTriangleIndexVertexArray_8cpp.html"];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="btTriangleMesh.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$btTriangleMesh_8h.html"];
+  Node12 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="btTriangleMesh.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$btTriangleMesh_8cpp.html"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

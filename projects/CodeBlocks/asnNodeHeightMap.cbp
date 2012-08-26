@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="asnNodeHeightMap" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Windows">
+				<Option platforms="Windows;" />
+				<Option output="..\..\bin\binw\plugins\asnNodeHeightMap.dll" prefix_auto="0" extension_auto="0" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="Linux">
+				<Option platforms="Unix;" />
+				<Option output="..\..\bin\binl\plugins\asnNodeHeightMap.so" prefix_auto="0" extension_auto="0" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Windows;Linux;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-DBUILDING_DLL=1" />
+			<Add directory="..\..\include" />
+			<Add directory="..\..\src\asnCommon" />
+		</Compiler>
+		<Unit filename="..\..\include\ASN_Params.cpp" />
+		<Unit filename="..\..\include\ASN_Types.h" />
+		<Unit filename="..\..\include\IBaseObject.h" />
+		<Unit filename="..\..\include\IDrawObject.h" />
+		<Unit filename="..\..\include\ILog.h" />
+		<Unit filename="..\..\include\INode.h" />
+		<Unit filename="..\..\src\asnCommon\3d_utils.cpp" />
+		<Unit filename="..\..\src\asnCommon\ASN_utils.cpp" />
+		<Unit filename="..\..\src\asnCommon\ASN_utils.h" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.cpp" />
+		<Unit filename="..\..\src\asnCommon\CNode.cpp" />
+		<Unit filename="..\..\src\asnCommon\CNode.h" />
+		<Unit filename="..\..\src\asnCommon\lod_terrain.cpp" />
+		<Unit filename="..\..\src\asnCommon\lod_terrain.h" />
+		<Unit filename="..\..\src\asnCommon\matrix.cpp" />
+		<Unit filename="..\..\src\asnNodeHeightMap\CNodeHeightMap.cpp" />
+		<Unit filename="..\..\src\asnNodeHeightMap\CNodeHeightMap.h" />
+		<Unit filename="..\..\src\asnNodeHeightMap\asnNodeHeightMap.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

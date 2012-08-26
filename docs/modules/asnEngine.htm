@@ -1,0 +1,46 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80%><tr><td>
+<h1 class=header1 align=center>[ asnEngine ]</h1>
+<blockquote>
+</blockquote>
+
+<p>Плагин asnEngine служит для инициализации движка AmberSkyNet VR и дальнейшей
+загрузки плагинов.</p>
+
+<h3 class=header3 align=center>Указатели окружения Engine:<br>(SetPtrParam, GetPtrParam)</h3>
+<li>PluginManager - указатель на систему плагинов
+<li>LogManager - указатель на класс лога
+<li>FileManager - указатель на класс файловой системы
+<li>DeviceManager - указатель на класс графического менеджера
+<li>ResourceSystem - указатель на класс менеджера ресурсов
+<li>SoundManager - указатель на класс звукового менеджера
+</p>
+
+
+<h3 class=header3 align=center>Переменные окружения Engine:<br>(SetEnvParam, GetEnvParam)</h3>
+
+<p> Пути:
+<li>[Paths]DataPath - путь к "корневой" папке данных
+<li>[Paths]PluginsPath - путь к папке плагинов
+<li>[Paths]LogPath - путь к папке логов (доступ на запись должен быть разрешен)
+</p>
+
+<p> Переменные загрузки плагинов:
+<li>[Modules]LogManager - имя класса лога, который надо создать из плагинов
+<li>[Modules]FileManager - имя класса менеджера файловой системы, который надо создать из плагинов
+<li>[Modules]DeviceManager - имя класса графического менеджера, который надо создать из плагинов
+<li>[Modules]SoundManager - имя класса звукового менеджера
+</p>
+
+<p>Переменные окружения, используемые каждым менеджером находятся в описаниях мендежеров.
+
+</body>
+</html>

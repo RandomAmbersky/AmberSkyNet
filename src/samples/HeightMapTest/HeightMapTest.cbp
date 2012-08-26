@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="HeightMap" />
+		<Option pch_mode="0" />
+		<Option default_target="default" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="..\..\..\bin\binw\HeightMap.exe" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="..\..\..\bin\binw\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option projectResourceIncludeDirsRelation="1" />
+			</Target>
+			<Target title="Linux">
+				<Option output="HeightMapTest" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="default;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add directory="..\..\..\include" />
+		</Compiler>
+		<Unit filename="..\..\..\include\ASN_Params.cpp">
+			<Option target="default" />
+		</Unit>
+		<Unit filename="..\..\..\include\ASN_Params.h">
+			<Option target="default" />
+		</Unit>
+		<Unit filename="..\..\..\include\EngineStarter.h">
+			<Option target="default" />
+		</Unit>
+		<Unit filename="..\..\..\include\os_loadmodule.cpp">
+			<Option target="default" />
+		</Unit>
+		<Unit filename="..\..\asnCommon\ASN_utils.cpp">
+			<Option target="default" />
+		</Unit>
+		<Unit filename="..\..\asnCommon\ASN_utils.h">
+			<Option target="default" />
+		</Unit>
+		<Unit filename="main.cpp">
+			<Option target="default" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

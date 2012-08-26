@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="asnDeviceGl" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Windows">
+				<Option platforms="Windows;" />
+				<Option output="..\..\bin\binw\plugins\asnDeviceGl.dll" prefix_auto="0" extension_auto="0" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Linker>
+					<Add library="..\..\bin\binw\SDL.dll" />
+					<Add library="opengl32" />
+					<Add library="glu32" />
+					<Add library="..\..\bin\binw\SDL_image.dll" />
+					<Add library="..\..\bin\binw\freetype6.dll" />
+				</Linker>
+			</Target>
+			<Target title="Linux">
+				<Option platforms="Unix;" />
+				<Option output="..\..\bin\binl\plugins\asnDeviceGl.so" prefix_auto="0" extension_auto="0" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Linker>
+					<Add library="SDL" />
+					<Add library="GL" />
+					<Add library="GLU" />
+					<Add library="SDL_image" />
+					<Add library="freetype" />
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Windows;Linux;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add directory="..\..\include" />
+			<Add directory="..\..\src\asnCommon" />
+			<Add directory="..\..\src\asnDeviceGl\lib" />
+			<Add directory=".\extlib" />
+		</Compiler>
+		<Linker>
+			<Add directory=".\extlib" />
+		</Linker>
+		<Unit filename="..\..\include\ASN_Params.cpp" />
+		<Unit filename="..\..\include\ASN_Params.h" />
+		<Unit filename="..\..\include\ASN_Types.h" />
+		<Unit filename="..\..\include\CVector.h" />
+		<Unit filename="..\..\include\IBaseObject.h" />
+		<Unit filename="..\..\include\ICamera.h" />
+		<Unit filename="..\..\include\IDevice.h" />
+		<Unit filename="..\..\include\IDrawObject.h" />
+		<Unit filename="..\..\include\IEventListener.h" />
+		<Unit filename="..\..\include\IEventManager.h" />
+		<Unit filename="..\..\include\IMaterial.h" />
+		<Unit filename="..\..\src\asnCommon\ASN_utils.cpp" />
+		<Unit filename="..\..\src\asnCommon\ASN_utils.h" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.cpp" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.h" />
+		<Unit filename="..\..\src\asnCommon\matrix.cpp" />
+		<Unit filename="..\..\src\asnCommon\quaternion.cpp" />
+		<Unit filename="..\..\src\asnCommon\quaternion.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CCamera.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CCamera.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CDeviceGl.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CDeviceGl.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CDrawObject.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CDrawObject.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CEvListCamLooker.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CEvListCamLooker.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CEvListCamWalker.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CEvListCamWalker.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CEventManagerSDL.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CEventManagerSDL.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CFontTTF.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CFontTTF.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CFontTexture.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CFontTexture.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CMaterial.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CMaterial.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CTexture.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CTexture.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CTexturePack.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CTexturePack.h" />
+		<Unit filename="..\..\src\asnDeviceGL\IFont.h" />
+		<Unit filename="..\..\src\asnDeviceGL\asnDeviceGl.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\lib\GLee.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnDeviceGL\lib\GLee.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

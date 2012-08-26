@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="asnNetSupervisor" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Windows">
+				<Option platforms="Windows;" />
+				<Option output="..\..\bin\binw\plugins\asnNetSupervisor.dll" prefix_auto="0" extension_auto="0" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Linker>
+					<Add library="..\..\bin\binw\SDL_net.dll" />
+					<Add library="extlib\libSDL.dll.a" />
+				</Linker>
+			</Target>
+			<Target title="Linux">
+				<Option platforms="Unix;" />
+				<Option output="..\..\bin\binl\plugins\asnNetSupervisor.so" prefix_auto="0" extension_auto="0" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Windows;Linux;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-DBUILDING_DLL=1" />
+			<Add directory="..\..\include" />
+			<Add directory="..\..\src\asnCommon" />
+			<Add directory="..\..\src\asnNetIRC" />
+			<Add directory="extlib" />
+		</Compiler>
+		<Linker>
+			<Add directory="..\..\extlib" />
+		</Linker>
+		<Unit filename="..\..\include\ASN_Params.cpp" />
+		<Unit filename="..\..\include\ASN_Params.h" />
+		<Unit filename="..\..\include\INetProtocolHandler.h" />
+		<Unit filename="..\..\include\INetSupervisor.h" />
+		<Unit filename="..\..\src\asnCommon\ASN_utils.cpp" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.cpp" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.h" />
+		<Unit filename="..\..\src\asnNetSupervisor\CNetSupervisor.cpp" />
+		<Unit filename="..\..\src\asnNetSupervisor\CNetSupervisor.h" />
+		<Unit filename="..\..\src\asnNetSupervisor\asnNetSupervisor.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

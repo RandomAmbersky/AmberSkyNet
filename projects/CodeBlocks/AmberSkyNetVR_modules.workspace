@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="AmberSkyNet Modules Workspace">
+		<Project filename="asnSound.cbp" />
+		<Project filename="asnDeviceGl.cbp" />
+		<Project filename="asnFileZIP.cbp" />
+		<Project filename="asnEngine.cbp" />
+		<Project filename="asnNetSupervisor.cbp" />
+		<Project filename="asnNetIRC.cbp" />
+		<Project filename="asnNetHTTP.cbp" />
+		<Project filename="asnNode3ds.cbp" />
+		<Project filename="asnNodeSprite.cbp" />
+		<Project filename="asnWorld.cbp" />
+		<Project filename="asnNodeSLTerrain.cbp" />
+		<Project filename="asnNodeRuler.cbp" />
+		<Project filename="asnNodeHeightMap.cbp" active="1" />
+		<Project filename="asnNodeGUI_Simple.cbp" />
+		<Project filename="asnNodeSkyCube.cbp" />
+		<Project filename="AmberSkyNet.cbp" />
+		<Project filename="../../src/samples/Gridder/Gridder.cbp" />
+		<Project filename="../../src/samples/HeightMapTest/HeightMapTest.cbp" />
+		<Project filename="../../src/samples/TerrainTest/TerrainTest.cbp" />
+		<Project filename="asnPhysicManager.cbp" />
+		<Project filename="asnScriptManager.cbp" />
+		<Project filename="../../src/samples/RoboWorld/RoboWorld.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>

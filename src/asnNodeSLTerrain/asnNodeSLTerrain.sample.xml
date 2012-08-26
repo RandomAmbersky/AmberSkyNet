@@ -1,0 +1,17 @@
+<!-- Parameters of NodeSLTerrain -->
+
+<NodeSLTerrain
+  Type="NodeSLTerrain" <!-- it's simply -->
+  Pos="0 0 0"          <!-- it's standard -->
+  TerrainFileName="brilliant_terrain.raw" <!-- Name of SL-compatible terrain file -->
+  TextureFileName="grass.jpg"             <!-- Name of texture file -->
+  ShowGround="1"       <!-- if 0, ground (in TerrainFileName) ignored -->
+  ShowWater="1"        <!-- if 0, water ignored, WaterHeight not used -->
+  WaterHeight="45"     <!-- Height of water -->
+  <!-- Next two parameters is a ratio between total number of terrain 
+    points and showed points by one axis. Both must be between 1 and 128.
+    1 is the best quality, 128 is best speed.
+    Total number of point reduction = NumPointReduction^2. -->
+  NumPointReduction="1" <!-- by axis OX -->
+  NumPointReduction="1" <!-- by axis OY -->
+/>

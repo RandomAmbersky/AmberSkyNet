@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="All" />
+	<File name="..\..\include\IManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="232" topLine="0" />
+	</File>
+	<File name="..\..\include\IPhysicManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="662" topLine="0" />
+	</File>
+	<File name="..\..\src\asnPhysicManager\CPhysicManagerODE.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="1925" topLine="300" />
+	</File>
+	<File name="..\..\src\asnPhysicManager\CPhysicManagerODE.h" open="0" top="0" tabpos="0">
+		<Cursor position="270" topLine="0" />
+	</File>
+	<File name="..\..\src\asnPhysicManager\asnPhysicManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="277" topLine="0" />
+	</File>
+	<File name="..\..\src\asnPhysicManager\lib\ode\src\testing.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="4851" topLine="166" />
+	</File>
+	<File name="..\..\src\asnPhysicManager\lib\ode\src\timer.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="7502" topLine="326" />
+	</File>
+</CodeBlocks_layout_file>

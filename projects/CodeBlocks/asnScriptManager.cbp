@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="asnScriptManager" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Windows">
+				<Option platforms="Windows;" />
+				<Option output="..\..\bin\binw\plugins\asnScriptManager.dll" prefix_auto="0" extension_auto="0" />
+				<Option object_output=".obj" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Windows;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-DBUILDING_DLL=1" />
+			<Add directory="..\..\include" />
+			<Add directory="..\..\src\asnCommon" />
+			<Add directory="..\..\src\asnScriptManager" />
+			<Add directory="..\..\src\asnScriptManager\lib\lua\include" />
+			<Add directory="..\..\src\asnScriptManager\lib\lua\src" />
+		</Compiler>
+		<Unit filename="..\..\include\ASN_Params.cpp" />
+		<Unit filename="..\..\include\ASN_Params.h" />
+		<Unit filename="..\..\include\IScriptManager.h" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.cpp" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.h" />
+		<Unit filename="..\..\src\asnScriptManager\CScriptManagerLua.cpp" />
+		<Unit filename="..\..\src\asnScriptManager\CScriptManagerLua.h" />
+		<Unit filename="..\..\src\asnScriptManager\asnScriptManager.cpp" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\include\lauxlib.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\include\lua.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\include\lualib.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lapi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lapi.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lcode.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lcode.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ldebug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ldebug.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ldo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ldo.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ldump.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lfunc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lfunc.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lgc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lgc.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\lauxlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\lbaselib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\ldblib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\liolib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\lmathlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\loadlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\lstrlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\ltablib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\llex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\llex.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\llimits.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lmem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lmem.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lobject.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lobject.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lopcodes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lopcodes.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lparser.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lparser.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lstate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lstate.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lstring.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lstring.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ltable.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ltable.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ltests.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ltm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ltm.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lundump.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lundump.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lvm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lvm.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lzio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lzio.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

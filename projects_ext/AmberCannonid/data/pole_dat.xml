@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<file Name="base.xml" />
+<WorldSimple3D>
+
+<CameraSimple />
+
+<NodeBase ShowSize="0">
+
+<NodeGrid2D Size="100 100 1" NumX="10" NumY="30" ShowGrid="0" Color="1 0 0" Rescale="1" />
+<NodeSprite Name="Background" Texture="background3.png" Size="100 100 1" Pos="0 -5 -0.1" />
+<NodeSprite Name="Bitok" Texture="klava.png" Size="15 5 1" Pos="0 0 0" />
+
+</NodeBase>
+</WorldSimple3D>

@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<file Name="base.xml" />
+<World>
+<!--NodeBase>
+   <!--NodeSprite Pos="20 1 100" Rot="0 90 0" Size="100 100 1" CenterPoint="50 50 0.5" AnglesSpeed="0 0 0" Anim_Count_X="1" Anim_Count_Y="1" BaseClass="Node" Count="1" PosSpeed="0 0 0" Texture="Brick wall.jpg" /-->
+   <!--NodeSprite Pos="1 1 1" Rot="0 0 0" Size="20 100 1" CenterPoint="50 50 0.5" AnglesSpeed="0 0 0" Anim_Count_X="1" Anim_Count_Y="1" BaseClass="Node" Count="1" PosSpeed="0 0 0" Texture="Brick wall.jpg" /-->
+   <!--LogoAmberSkyNet Pos="-10 10 105" /-->
+<!--/NodeBase-->
+</World>

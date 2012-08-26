@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="All" />
+	<File name="..\..\include\IScriptManager.h" open="0" top="0" tabpos="0">
+		<Cursor position="1254" topLine="11" />
+	</File>
+	<File name="..\..\src\asnScriptManager\CScriptManagerLua.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="871" topLine="36" />
+	</File>
+	<File name="..\..\src\asnScriptManager\asnScriptManager.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="712" topLine="18" />
+	</File>
+</CodeBlocks_layout_file>

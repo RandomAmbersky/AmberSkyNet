@@ -1,0 +1,334 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=../ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80%><tr><td>
+<h1 class=header1 align=center>[ AmberSkyNet VR ]</h1>
+<blockquote>
+</blockquote>
+
+<p>Текст, один текст... В консоли, в логах.. Пора чего-нибудь графическое
+сотворить уже... Например - менеджер графики. Думаю, что далее его
+интерфейсы всё-таки будут немного меняться, а пока предлагаю вашему вниманию
+первое приближение...<br>
+Мне не очень хочется делать функции вывода примитивов - текстурированный
+квадрат, треугольник, итп, как было сделано в предыдущей итерации движка.
+Вместо этих функций создам пока одну - отрисовка объекта DrawObject.
+Рисовать его будет графический мендежер, он же и будет создавать экземпляры
+данного класса, что позволит относительно без больших переделок
+изменять его внутреннюю структуру, которую будет знать только сам 
+менеджер графики, а для всех внешних классов она будет скрыта за
+интерфейсом. Это позволит в перспективе подключать различные менеджеры
+графики, учитывающие особенности старых и современных видеокарт. 
+Вообще, написание разных менеджеров не планирую, но вдруг.. 
+</p>
+
+<p>Отрисовками небесного куба, сфер, спрайтов, анимированых трёхмерных моделей, итп
+будут заниматься отдельные классы - представления вида элементов сцены.
+Они будут формировать данные в доступном для отрисовки менеджером графики формате -
+в виде вертексов, нормалей, текстурных координат. Причём не обязательно одному классу
+представления вида элемента сцены будет соответствовать один элемент для графического
+менеджера.<br>
+Менеджер графики же будет просто принимать указатели на массивы данных графических данных 
+и отрисовывать их.
+</p>
+
+
+<h3 class=header3 align=center>IBaseObject и его реализация</h3>
+
+<p>Но для начала - введём базовый объект. Набор его функций позволит нам добавлять функциональность
+в классы без больших изменений интерфейса. Как это работает покажем это чуть ниже, на
+примере класса материала для нашего графического менеджера.</p>
+
+<pre><b>class IBaseObject {
+public: 
+
+virtual ~IBaseObject(){};
+
+<span class=comment>// получить имя базового класса</span>
+virtual std::string GetBaseClass() =0;
+<span class=comment>// получить тип объекта - имя реализации базового класса</span>
+virtual std::string GetType() =0;
+<span class=comment>// получить имя объекта</span>
+virtual std::string GetName() =0;
+
+<span class=comment>// функции установки/чтения указателей на менеджеры и пр.</span>
+virtual void SetPtrParam(const std::string& param_name, void *param_value) =0;
+virtual void *GetPtrParam(const std::string& param_name) =0;
+virtual void DelPtrParam(const std::string& param_name) =0;
+
+<span class=comment>// функции установки/чтения переменных</span>
+virtual void SetParam(const std::string& param_name,const std::string& param_value) =0;
+virtual std::string GetParam(const std::string& param_name) =0;
+virtual void DelParam(const std::string& param_name) =0;
+
+};
+</b></pre>
+
+<p>Функция GetBaseClass возвращает имя базового класса объекта. Ну, например класс реализации 
+менеджера GUI возвратит значение "GUI Manager"<br>
+Функция GetType возвращает имя реализации базового класса. Например, менеджер основанный
+на библиотеке guichan возвратит имя "guichan", а менеджер какой-нибудь guiSDL возвратит "guiSDL".<br>
+Функция GetName возвратит имя объекта, как правило, уникальное.</p>
+
+<p>Да, напоминает набор функций в IEngine. Возможно в будущем так и сделаю - наследую IEngine от него.</p>
+<p>Класс BaseObject реализует некоторую функциональность интерфейсного класса IEngine 
+по установке/удалению указателей и переменных. Поэтому в описании BaseObject.h есть секция
+protected с хранящимися в ней списками переменных и указателей в виде std:map. Жаль,что не удалось в папке include собрать заголовки только абстрактных классов :((
+Впрочем реализация BaseObject.h всё равно скрыта в asnCommon и по идее может быть недоступна
+сферическому разработчику в вакууме, который вдруг ни с того ни с сего 
+захочет использовать наш движок для написания своей программы.
+</p>
+
+<h3 class=header3 align=center>IDrawObject</h3>
+<p>Напишем интерфейс объекта отрисовки, который будет связующим звеном между данными
+внешней программы и нашим граф. менеджером. Указатель на него и будет посылаться нашему
+графическому менеджеру в команде Draw(). Конечно можно передавать указатели на данные прямо
+в наш менеджер (скажем, в ту же команду Draw()), но в этом случае менеджер будет каждый раз
+заново подключать одни  и те же текстуры, устанавливать указатели на массивы, включать/выключать
+освещение объекта, устанавливать переменные среды в соответствии с материалом объекта.<br>
+В случае передачи указателя менеджер может оптимизировать отрисовку, упорядочив очередь
+отрисовки по материалам, мешам, координатам,  итп... Но может этого и не делать :-)<br>
+Поэтому на будущее мы такую возможность оставим, но выводить будем пока без оптимизации.</p>
+
+<p>Как всегда - сначала интерфейс.</p>
+
+<pre><b><span class=comment>// виды буферов</span>
+enum ASN_DATA_Buffer{
+ASN_DATA_VERTEX_BUFF=0,
+ASN_DATA_NORMAL_BUFF,
+ASN_DATA_COLOR_BUFF,
+ASN_DATA_UV_BUFF,
+};
+
+
+class IDrawObject{
+public:
+
+<span class=comment>// материал</span>
+virtual bool SetMaterial(IMaterial *Material)=0;
+<span class=comment>// буфер данных - в одном массиве храним вертексы, нормали, текстурные координаты</span>
+<span class=comment>// на вход подаём указатель на буфер, размер одного элемента, кол-во элементов в буфере</span>
+virtual bool SetDataBuffer(void *buffer, unsigned int element_size, unsigned int buf_size)=0;
+<span class=comment>// задаём сдвиг данных</span>
+virtual bool SetDataOffset(ASN_DATA_Buffer buffer_type, unsigned int data_offset)=0;
+<span class=comment>// буфер индекса</span>
+virtual bool SetIndexBuffer(void *buffer, unsigned int element_size, unsigned int buf_size)=0;
+};
+</b></pre>
+
+<p>Функция SetMaterial присваивает объекту определённый материал. О материалах будет чуть ниже.</b>
+<p>Функция SetDataBuffer устанавливает указатель на массив данных, которые будут
+отрисованы. Во входных параметрах функции указывается размер
+структуры, которая хранит в себе один вертекс (возможно, с нормалями и текстурными
+координатами).<br>
+Все данные хранятся в одном массиве однотипных структур. Чтобы не перепутать где какие 
+при отрисовке - задаём смещение каждого типа хранящихся данных относительно начала структуры
+при помощи функции SetDataOffset.
+</p>
+<p>Пояснение: пусть данные хранятся у нас в таком виде<br>
+<вертекс x,y,z><нормаль z,y,z><текстура x,y><вертекс x,y,z><нормаль z,y,z><текстура x,y>...<br>
+Таким образом чтобы считывать из массива параметры нормали нам надо задать для нормали
+смещение, равное размеру <вертекс x,y,z>. А чтобы считывать из массива
+текстурные координаты надо задать смещение равное сумме размеров <вертекс x,y,z> и <нормаль x,y,z>.<br>
+</p>
+
+<p>Функция SetIndexBuffer устанавливает указатель на массив с индексами, указывающими какие
+данные отрисовывть из массива данных. Смещение в данном случае указывать не требуется, т.к.
+массив состоит только из индексов.</p>
+
+<h3 class=header3 align=center>IDevice</h3>
+
+<p>Так как в SDL очень тесно интегрированы ввод и отрисовка мы тоже сделаем
+для этого единый менеджер - менеджер графики и ввода.  Поэтому интерфейс
+у него будет несколько совмещённый:
+
+
+<pre><b>
+
+<span class=comment>// события, получаемые через функцию GetInput()</span>
+enum ASN_INPUT_EVENTS_Types {
+ASN_NONE, <span class=comment>// NULL</span>
+ASN_EVNT_EMPTY,
+ASN_EVNT_KEYPRESSED, <span class=comment>//нажата кнопка</span>
+ASN_EVNT_KEYUP, <span class=comment>//отжата кнопка</span>
+ASN_EVNT_MOUSEMOVE,<span class=comment> //мышка сдвинулась</span>
+ASN_EVNT_MOUSEDOWN, <span class=comment>//нажата кнопка мышки</span>
+ASN_EVNT_MOUSEUP, <span class=comment>//отжата кнопка мышки</span>
+ASN_MOUSE_BUTTON_LEFT, <span class=comment>//нажата левая кнопка мышки</span>
+ASN_MOUSE_BUTTON_RIGHT, <span class=comment>//нажата правая кнопка мышки</span>
+ASN_MOUSE_BUTTON_MIDDLE,<span class=comment> //нажата средняя кнопка мышки</span>
+ASN_MOUSE_WHEEL_UP, <span class=comment>//колёсико мышки вертится вверх</span>
+ASN_MOUSE_WHEEL_WHEELDOWN, <span class=comment>//колёсико мышки вертится вниз</span>
+ASN_QUIT, <span class=comment>// закрытие Device</span>
+};
+
+<span class=comment>// типы граф. режимов - 2d, 3d</span>
+enum ASN_GRAPH_MODE_Types {
+ASN_GRAPH_2D,
+ASN_GRAPH_3D,
+};
+
+class IDevice {
+public:
+virtual ~IDevice(){};
+
+<span class=comment>// инициализация графики</span>
+virtual bool Init(int width=640, int height=480, int bpp=32, int param=0)=0;
+<span class=comment>// установка режима - 2d, 3d</span>
+virtual bool SetMode(ASN_GRAPH_MODE_Types Typ)=0;
+
+<span class=comment>// читаем события из очереди</span>
+virtual int GetInput()=0;
+
+<span class=comment>// начало отрисовки сцены</span>
+virtual void StartDraw()=0;
+<span class=comment>// рисуем объект</span>
+virtual bool DrawObject(IDrawObject *SceneElem)=0;
+<span class=comment>// заканчиваем отрисовку сцены</span>
+virtual void EndDraw()=0;
+
+<span class=comment>// материалы</span>
+virtual IMaterial *AddMaterial (const void* MaterialInfo)=0;
+virtual IMaterial *GetMaterial (const std::string& MaterialName)=0;
+
+<span class=comment>// меши отрисовки</span>
+virtual IDrawObject *CreateDrawObject(const std::string& SceneElemInfo)=0;
+virtual IDrawObject *GetDrawObject(const std::string& SceneElemName)=0;
+
+<span class=comment>// позиционирование</span>
+
+<span class=comments> // работа с мышкой</span>
+<span class=comment>// перевод координат мышки в мировые координаты</span>
+virtual void MouseToWorld(int mouse_x, int mouse_y, CVector& p1, CVector& p2)=0;
+<span class=comment> // работа с мышкой</span>
+virtual void CenterMouse(bool ShowCursor)=0;
+
+<span class=comment> //позиционирование </span>
+<span class=comment>// получаем матрицы</span>
+virtual void GetMatrixs(double *Model_Matrix, double *Project_Matrix)=0;
+<span class=comment>// устанавливаем матрицы</span>
+virtual void SetMatrixs(double *Model_Matrix, double *Project_Matrix)=0;
+<span class=comment>// вращаем на XYZ</span>
+virtual void Rotate(CVector& Point1)=0;
+<span class=comment>// двигаем на XYZ</span>
+virtual void Move(const CVector& Point1)=0;
+<span class=comment>// масштабируем на XYZ</span>
+virtual void SetScale(const CVector& Point1)=0;
+<span class=comment>// помещаем матрицы в стек</span>
+virtual void PushMatrix()=0;
+<span class=comment>// забираем матрицы из стека</span>
+virtual void PopMatrix()=0;
+
+<span class=comment>// FPS - считается в EndDraw()</span>
+int FPS; 
+<span class=comment>// интервал между фреймами для корректной скорости анимации</span>
+float FrameInterval;
+<span class=comment>// код последней нажатой клавиши</span>
+int LastKey;
+<span class=comment>// код последней нажатой клавиши в unicode</span>
+unsigned short UnicodeKey;
+
+<span class=comment>// положение мышки на экране</span>
+int mouse_x;
+int mouse_y;
+unsigned char mouse_butt;
+};
+
+</b></pre>
+
+<p>Некоторые значения (fps, код нажатой клавиши, координаты мышки) доступны напрямую,
+без вызовов функций - это в данном случае считаю ненужным.</p>
+
+<p>Граф. менеджер производит экземпляры классов СMaterial и СDrawObject и выдаёт их через функции
+AddMaterial и CreateDrawObject. Если мы вдруг захотим использовать 
+уже имеющийся материал или объект отрисовки, то можем получить указатель на него
+по его имени - при помощи функций GetMaterial и GetObject.
+Пока в функции AddMaterial и AddDrawObject подаётся только указатель на имя материала, потом - сделаю нормальный парсер входных значений
+и буду подавать входные параметры через знак-разделитель |, как это было в предыдущей
+реинкарнации движка.. может быть...
+</p>
+
+<h3 class=header3 align=center>IMaterial и дальнейшее развитие CMaterial</h3>
+<p>Графический менеджер возвращает экземпляр класса CMaterial под видом
+интерейсного класса IMaterial, поэтому public-поля класса, хорошо видимые менеджером графики,
+будут невидимы для внешней прогаммы. Это даст нам возможность как угодно менять строение
+класса материала, изменения потребуется внести только в пределах классов модуля DeviceGL.
+Все остальные классы движка и внешней программы останутся без изменений.</p>
+
+<p>CMaterial на данный момент реализует только хранение текстуры. Одной. Без бампа, 
+параметров диффузного, зеркального цвета, итп.. Не всё сразу, я думаю... Текстура задаётся
+при помощи вызова функции<br> SetParam("Texture", <Имя текстуры>); При вызове функции SetParam
+проверяется значение какой переменной будет установлено. В случае, если изменяется значение 
+переменной "Texture" указатель на текстуру у класса сбрасывается, и при отрисовке менеджер
+проанализирует значение этого указателя и в случае, если его значение равно NULL - загрузит
+текстуру с именем в переменной "Texture" нашего класса материала и сохранит указатель на неё
+в классе материала. Все эти манипуляции проходят внутри классов CMaterial и CDeviceGL,
+не выходя наружу.
+</p>
+
+<p>Если вдруг мы захотим сделать мультитекстурирование, то достаточно будет добавить в класс
+CMaterial указатель на дополнительную текстуру, учесть установку переменных, связанных
+с мультитекстурированием и доработать в DeviceGL вывод мешей с несколькими текстурами.<br>
+Изменения всей остальной части движка не потребуются, а во внешней программе 
+просто появится еще одна строчка, скажем вот такая:<br>
+<pre class=code>
+myMaterial->SetParam("Texture1","graystone.png");
+</pre>
+</p>
+
+<p>Посмотрим... Может быть потом вынесу из CDeviceGL функцию установки
+параметров окружения в соответствии с материалом в класс материала.
+Это позволит создавать материалы разных типов (например - с бампом и без, с параметрами освещения, итп)
+и не проверять в CDeviceGL что установлено а что нет в классе материала...
+</p>
+
+<h3 class=header3>Взаимодействие с граф. менеджером</h3>
+<p>Engine после разбора ini-файла читает значение переменной <span class=b>[Modules]DeviceManager</span>
+и пытается загрузить через систему плагинов графический менеджер с таким названием. Полученный
+указатель запоминается в указателях окружения с именем <span class=b>DeviceManager<span>.
+Для обращения к менеджеру во внешних программах можно использовать
+определённое через макрос в файле IDevice.h слово DEVICER. Например, получить значение FPS
+можно вот так:<br>
+
+<pre class=code>DEVICER->FPS;</pre>
+
+</p>
+<p>Переменные окружения:<br>
+<li> "[DeviceManager]window_name" - заголовок графического окна.
+<li> "[DeviceManager]height", "[DeviceManager]width" - размеры (в пикселях) высоты и ширины графического окна
+
+<h3 class=header3 align=center>Изменения в исходниках</h3>
+<p><b>include/:</b> Добавлен интерфейсы IBaseObject.h, BaseObject.h, IDevice.h, IDrawObject.h, IMaterial.h</p>
+
+<p><b>src/asnMain/:</b>Небольшая демка с летающими "бубликами", показывающий как использовать
+всё то, что было описано выше. Класс формирования 
+геометрии тора взят из примера на сайте 3dsteps.narod.ru, но где-то подобное я уже видел еще...</b> 
+</p>
+
+<p><b>src/asnEngine/:</b> добавлена инициализация графического менеджера.
+</p>
+
+<p><b>src/asnDeviceGL/:</b> Новый плагин - менеджер графической системы и ввода/вывода с реализацией
+материалов и объектов отрисовки.
+</p>
+
+<p align=center><img src=engine_7.png></p>
+
+<p>Исходники этого шага выложены в SVN. Скачать их можно набрав команду:
+<pre>
+<b>svn co https://svn.sourceforge.net/svnroot/ambernet/tags/AmberSkyNet-0.7 ambernet_0.7</b>
+</pre>
+
+</table>
+<div>Powered by:
+<A href="http://sourceforge.net"><IMG align=center src="http://sourceforge.net/sflogo.php?group_id=121759&amp;type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A>
+</div>
+
+</body>
+</html>

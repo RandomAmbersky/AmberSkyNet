@@ -1,0 +1,36 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=../ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80%><tr><td>
+<h1 class=header1 align=center>[ IDataParser ]</h1>
+<blockquote>
+
+</blockquote>
+
+<p>Интерейс к парсеру данных. Парсер данных преобразует некий в общем случае бинарный файл
+в древовидную структуру.</p>
+
+<p>Для начала рабора текстового файла необходимо передать в парсер
+указатель на текстовые данные в памяти через функцию StartParse().
+</p>
+
+<p>Получить указатель на текстовые данные, хранящиеся в файле можно, например, вот так,
+с использованием менеджера файловой системы:<br>
+<pre><b>// FileName - имя XML-файла данных.
+IFile *myFile=FILER->GetFile( FileName );
+if (!myFile) return true; //файла нет такого
+myFile->FileOpen();
+void *data=myFile->LoadInMem();
+if (myFile->GetState()!=ASN_FILE_DISK_IN_MEM) return true; // не грузится он :(
+</b></pre>
+В результате в переменной data получаем указатель на данные.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<file Name="base.xml" />
+
+<WorldSimple3D >
+
+<CameraSimple>
+  <EvListCamWalker />
+  <EvListCamLooker />
+</CameraSimple>
+
+
+<BaseObject>
+<RobBot Type="Node3ds" MeshFileName="gnome.3ds"  ModelScale="5" />
+</BaseObject>
+
+<NodeBase>
+   <NodeSprite Pos="0 0 0" Rot="0 0 0" Size="100 100 1" Texture="fronttop.bmp" />
+   <LogoAmberSkyNet Pos="-10 10 105" />
+</NodeBase>
+
+</<WorldSimple3D >

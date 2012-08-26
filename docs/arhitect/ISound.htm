@@ -1,0 +1,31 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=../ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80%><tr><td>
+<h1 class=header1 align=center>[ ISound ]</h1>
+<blockquote>
+</blockquote>
+
+<p>Интерфейсный класс к менеджеру звуков, для проигрывания фоновой мелодии и звуковых эффектов</p>
+
+<h3 class=header3 align=center>Переменные менеджера звуков</h3>
+Переменные на данный момент хранятся не в самом плагине, а читаются из глобальных
+переменных окружения Engine (GetEnvParam, SetEnvParam).
+
+<ul>
+<li>[SoundManager]SoundEnabled - включать ли звук или нет. Engine пробует загрузить
+менеджер звука с именем, заданым в параметре [Modules]SoundManager если параметр
+установлен в 1. Если параметр установлен в 0, загрузки менеджера звука не происходит.
+Если попытка инициализации звука менеджером не удалась, значение также устанавливается в 0.
+</ul>
+</p>
+
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_workspace_file>
+<CodeBlocks_workspace_file>
+	<Workspace title="Default workspace">
+		<Project filename="AmberSkyNet.cbp"/>
+		<Project filename="asnALL.cbp"/>
+		<Project filename="asnSound.cbp"/>
+		<Project filename="asnNetSupervisor.cbp" active="1"/>
+	</Workspace>
+</CodeBlocks_workspace_file>

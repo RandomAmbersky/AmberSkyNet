@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<BaseObject>
+
+ <Explode Type="NodeSprite" Texture="Explode.tga" Start_Anim="0"
+	  Anim_Count_X="4" Anim_Count_Y="4" Count="all" Speed="0.1"
+	  Size="10 10 10" Repeat="1" Billbord="1" Alpha="0.99"
+	  />
+
+ <LogoAmberSkyNet Type="NodeSprite" Texture="AmberSkyNet.png" 
+	  Size="5 5 5" Billbord="1" Repeat="0" Color="1 1 1" Alpha="0.8"
+	  />
+
+ <LogoOpenGL Type="NodeSprite" Texture="openGL.png" 
+	  Size="5 5 5" Billbord="1"
+	  />
+
+ <LogoSDL Type="NodeSprite" Texture="SDL_now.tga"
+	  Size="5 5 5" Billbord="1"
+	  />
+
+</BaseObject>

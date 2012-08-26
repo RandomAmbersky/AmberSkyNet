@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+
+<file Name="commonObjects.xml" />
+
+<BaseObject>
+<Axe    Type="Node3ds" MeshFileName="axe.3ds"    ModelScale="10" ShowSize="1"/>
+<Column Type="Node3ds" MeshFileName="column.3ds" ModelScale="10" ShowSize="1"/>
+<Gnome  Type="Node3ds" MeshFileName="gnome.3ds"  ModelScale="10" ShowSize="1"/>
+<Stairs Type="Node3ds" MeshFileName="stairs.3ds" ModelScale="10" ShowSize="1"/>
+<Helmet Type="Node3ds" MeshFileName="helmet.3ds" ModelScale="10" ShowSize="1"/>
+<Sword  Type="Node3ds" MeshFileName="sword.3ds"  ModelScale="10" ShowSize="1"/>
+<Chair  Type="Node3ds" MeshFileName="chair.3ds"  ModelScale="10" ShowSize="1"/>
+
+<Kegl1  Type="Node3ds" MeshFileName="boss_3ds.3DS"  ModelScale="10" ShowSize="1"/>
+<Kegl2  Type="Node3ds" MeshFileName="chair.3ds"  ModelScale="10" ShowSize="1"/>
+<Kegl3  Type="Node3ds" MeshFileName="Fanta.3DS"  ModelScale="50" ShowSize="1"/>
+<Kegl4  Type="Node3ds" MeshFileName="Thermos.3DS"  ModelScale="50" ShowSize="1"/>
+
+<Kegl1 Type="NodeSprite" Texture="gd.png" Alpha="1"/>
+<Sharik Type="NodeSprite" Texture="gd.png" ShowSize="1"/>
+<Bitok Type="NodeSprite" Texture="klava.png" ShowSize="1"/>
+
+<Back Type="NodeSprite" Texture="background3.png" Size="100 100 1" Pos="0 -5 -1" />
+
+</BaseObject>

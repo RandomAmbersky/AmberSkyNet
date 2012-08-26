@@ -1,0 +1,19 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="btCollisionShape",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtCollisionShape.html",tooltip="btCollisionShape provides interface for collision shapes that can be shared among btCollisionObjects..."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="btCompoundShape",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtCompoundShape.html",tooltip="btCompoundShape allows to store multiple other btCollisionShapes This allows for concave collision ob..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="btConcaveShape",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtConcaveShape.html",tooltip="Concave shape proves an interface concave shapes that can produce triangles that overlapping a given ..."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="btEmptyShape",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtEmptyShape.html",tooltip="btEmptyShape is a collision shape without actual collision detection."];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="btHeightfieldTerrainShape",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtHeightfieldTerrainShape.html",tooltip="btHeightfieldTerrainShape simulates a 2D heightfield terrain"];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="btStaticPlaneShape",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtStaticPlaneShape.html",tooltip="StaticPlaneShape simulates an &#39;infinite&#39; plane by dynamically reporting triangles approximated by int..."];
+  Node3 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="btTriangleMeshShape",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtTriangleMeshShape.html",tooltip="Concave triangle mesh. Uses an interface to access the triangles to allow for sharing graphics/physic..."];
+}

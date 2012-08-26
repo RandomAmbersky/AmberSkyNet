@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="asnPhysicManager" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="..\..\bin\binw\plugins\asnPhysicManager.dll" prefix_auto="0" extension_auto="0" />
+				<Option object_output="..\..\obj" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="default;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-DBUILDING_DLL=1" />
+			<Add directory="..\..\include" />
+			<Add directory="..\..\src\asnCommon" />
+			<Add directory="..\..\src\asnPhysicManager\lib\ode\include" />
+			<Add directory="..\..\src\asnPhysicManager\lib\ode\OPCODE" />
+		</Compiler>
+		<Unit filename="..\..\include\ASN_Params.cpp" />
+		<Unit filename="..\..\include\ASN_Params.h" />
+		<Unit filename="..\..\include\IManager.h" />
+		<Unit filename="..\..\include\IPhysicManager.h" />
+		<Unit filename="..\..\src\asnCommon\ASN_utils.cpp" />
+		<Unit filename="..\..\src\asnCommon\ASN_utils.h" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.cpp" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.h" />
+		<Unit filename="..\..\src\asnCommon\matrix.cpp" />
+		<Unit filename="..\..\src\asnCommon\matrix.h" />
+		<Unit filename="..\..\src\asnPhysicManager\CPhysicManagerODE.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\CPhysicManagerODE.h" />
+		<Unit filename="..\..\src\asnPhysicManager\asnPhysicManager.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceAABB.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceAABB.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceAxes.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceBoundingSphere.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceContainer.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceContainer.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceFPU.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceHPoint.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceHPoint.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceIndexedTriangle.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceIndexedTriangle.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceLSS.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceMatrix3x3.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceMatrix3x3.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceMatrix4x4.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceMatrix4x4.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceMemoryMacros.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceOBB.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceOBB.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IcePairs.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IcePlane.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IcePlane.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IcePoint.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IcePoint.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IcePreprocessor.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceRandom.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceRandom.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceRay.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceRay.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceRevisitedRadix.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceRevisitedRadix.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceSegment.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceSegment.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceTriList.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceTriangle.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceTriangle.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceTypes.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceUtils.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Ice\IceUtils.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_AABBCollider.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_AABBCollider.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_AABBTree.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_AABBTree.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_BaseModel.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_BaseModel.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_BoxBoxOverlap.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_BoxPruning.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_BoxPruning.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_Collider.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_Collider.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_Common.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_Common.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_HybridModel.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_HybridModel.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_IceHook.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_LSSAABBOverlap.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_LSSCollider.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_LSSCollider.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_LSSTriOverlap.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_MeshInterface.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_MeshInterface.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_Model.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_Model.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_OBBCollider.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_OBBCollider.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_OptimizedTree.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_OptimizedTree.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_Picking.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_Picking.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_PlanesAABBOverlap.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_PlanesCollider.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_PlanesCollider.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_PlanesTriOverlap.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_RayAABBOverlap.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_RayCollider.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_RayCollider.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_RayTriOverlap.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_Settings.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_SphereAABBOverlap.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_SphereCollider.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_SphereCollider.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_SphereTriOverlap.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_SweepAndPrune.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_SweepAndPrune.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_TreeBuilders.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_TreeBuilders.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_TreeCollider.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_TreeCollider.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_TriBoxOverlap.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_TriTriOverlap.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_VolumeCollider.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\OPC_VolumeCollider.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Opcode.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\OPCODE\Opcode.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\array.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\array.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\box.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\capsule.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_cylinder_box.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_cylinder_plane.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_cylinder_sphere.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_cylinder_trimesh.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_kernel.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_kernel.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_quadtreespace.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_space.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_space_internal.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_std.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_transform.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_transform.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_trimesh_box.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_trimesh_ccylinder.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_trimesh_distance.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_trimesh_gimpact.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_trimesh_internal.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_trimesh_opcode.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_trimesh_plane.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_trimesh_ray.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_trimesh_sphere.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_trimesh_trimesh.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_util.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\collision_util.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\convex.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\cylinder.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\error.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\export-dif.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\fastdot.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\fastldlt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\fastlsolve.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\fastltsolve.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\heightfield.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\heightfield.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\joint.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\joint.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\lcp.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\lcp.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\mass.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\mat.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\mat.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\matrix.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\memory.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\misc.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\objects.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\obstack.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\obstack.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\ode.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\odemath.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\plane.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\quickstep.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\quickstep.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\ray.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\rotation.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\sphere.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\stack.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\step.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\step.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\stepfast.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\testing.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\testing.h" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\timer.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\util.cpp" />
+		<Unit filename="..\..\src\asnPhysicManager\lib\ode\src\util.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

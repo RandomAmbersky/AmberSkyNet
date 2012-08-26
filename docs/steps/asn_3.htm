@@ -1,0 +1,112 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=../ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80%><tr><td>
+<h1 class=header1 align=center>[ AmberSkyNet VR ]</h1>
+<blockquote>
+Я кладу кирпичную стену, аккуратно, не спеша.<br>
+А куда спешить? У меня всего два кирпича.<br>
+(народный фольклор)
+</blockquote>
+
+<p>Пора переходить к плагинам. Иначе новые классы будут прирастать
+к главному и впоследствии "отдирать" их в отдельные загрузочные модули будет труднее</p>
+
+<p>Собственно сам загрузочный модуль (dll,so) будет обеспечивать
+только вызов одной-единственной функции GetPlugin - создание экземпляра класса-генератора.
+Класс-генератор (интерфейс к нему IAsnGenerator) будет "генерировать", т.е.
+создавать экземпляры классов по их типу. Его функция GetClass
+с параметром, определяющим тип класса, создаёт экземпляр 
+класса и возвращает указатель на него или NULL, если генератор не может создавать
+экземпляры классов указанного типа.
+
+<pre><b>
+struct IAsnGeneratorInfo
+{
+	std::string name,<font color=green>         //имя загрузочного модуля</font>
+                type<font color=green>,             //поддерживаемые типы генерации экземлпяров классов</font>
+                author,<font color=green>           //автор плагина</font>
+                description<font color=green>,      //описание плагина</font>
+                plugin_version,<font color=green>   //версия плагина</font>
+                required_version;<font color=green> //требуемая версия движка, не ниже   //TODO</font>
+
+};
+
+struct  IAsnGenerator
+{
+public:
+...
+<font color=green>// возвращаем экземпляр класса, на входе - имя класса</font>
+<font color=green>// NULL на выходе, если генератор не смог содать класс типа Type</font>
+    virtual void *GetClass(const std::string& Type);
+<font color=green> // передаём указатель на Engine</font>
+    virtual void Initialize(IEngine *vEngine);
+<font color=green> // получаем информацию о плагине </font>
+    IAsnGeneratorInfo GetInfo();
+}
+
+</b></pre>
+
+<p>Для более удобной работы с классами-генераторами и плагинами сделаем
+отдельный класс CPluginFactory, который и будет заниматься
+загрузкой/выгрузкой модулей и созданием классов.<br>
+Он будет сканировать директорию с плагинами, загружать их, получать
+классы-генераторы и определять экземлпляры каких типов они могут создавать.
+</p>
+
+<pre><b>
+class CPluginFactory {
+public:
+...
+<font color=green>// сканируем директорию с плагинами классов-генераторов и загружаем их</font>
+void ScanDirectory(std::string DirName, bool Recursive);
+
+<font color=green>// загрузить модуль класса-генератора IAsnGenerator, true - ошибка при загрузке</font>
+bool LoadASNModule(const std::string& ModuleName);
+
+<font color=green>// выгрузить модуль плагина </font>
+//bool UnloadModule(const std::string& ModuleName);
+
+<font color=green>// создать класс с типом Type на основе всех известных классов-генераторов</font>
+void *CreateType(const std::string& Type);
+...
+}
+</b></pre>
+
+
+<h3 class=header3 align=center>Изменения в исходниках</h3>
+
+<p><b>include/:</b> Добавлен файл os_deps.h в котором собраны платформозависимые
+решения по работе с файловой системой - получение информации о файле, директории.
+</p>
+
+<p><b>src/asnCommon/:</b> Добавлен файл утилитарных функций выделения имени и расширения файла.
+Они понадобились для определения имеет ли найденный при сканировании папки файл
+расширение загружаемого модуля (.dll,.so) и для занесения указателя на модуль
+в список с именем модуля, отбрасывая его путь.</p>
+
+<p><b>src/asnMain/:</b> Добавлен класс загрузки плагинов.
+Main с его помощью и загружает теперь экземпляр СEngine из отдельной dll под видом IEngine.
+</p>
+
+<p><b>src/asnEngine/:</b> В движке появился первый загрузочный модуль!
+В него вынесен из asnMain класс CEngine, созданный на предыдущем шаге.</p>
+
+<p>Исходники этого шага выложены в SVN. Скачать их можно набрав команду:
+<pre>
+<b>svn co https://svn.sourceforge.net/svnroot/ambernet/tags/AmberSkyNet-0.3 ambernet_0.3</b>
+</pre>
+
+</table>
+<div>Powered by:
+<A href="http://sourceforge.net"><IMG align=center src="http://sourceforge.net/sflogo.php?group_id=121759&amp;type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></A>
+</div>
+
+</body>
+</html>

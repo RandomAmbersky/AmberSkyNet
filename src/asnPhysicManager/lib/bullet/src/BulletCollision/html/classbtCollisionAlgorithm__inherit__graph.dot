@@ -1,0 +1,21 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="btCollisionAlgorithm",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="btCompoundCollisionAlgorithm",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtCompoundCollisionAlgorithm.html",tooltip="btCompoundCollisionAlgorithm supports collision between CompoundCollisionShapes and other collision s..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="btConvexConcaveCollisionAlgorithm",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtConvexConcaveCollisionAlgorithm.html",tooltip="btConvexConcaveCollisionAlgorithm supports collision between convex shapes and (concave) trianges mes..."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="btConvexConvexAlgorithm",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtConvexConvexAlgorithm.html",tooltip="ConvexConvexAlgorithm collision algorithm implements time of impact, convex closest points and penetr..."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="btEmptyAlgorithm",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtEmptyAlgorithm.html",tooltip="EmptyAlgorithm is a stub for unsupported collision pairs."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="btSphereBoxCollisionAlgorithm",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtSphereBoxCollisionAlgorithm.html",tooltip="btSphereBoxCollisionAlgorithm provides sphere-box collision detection."];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="btSphereSphereCollisionAlgorithm",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtSphereSphereCollisionAlgorithm.html",tooltip="btSphereSphereCollisionAlgorithm provides sphere-sphere collision detection."];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="btSphereTriangleCollisionAlgorithm",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbtSphereTriangleCollisionAlgorithm.html",tooltip="btSphereSphereCollisionAlgorithm provides sphere-sphere collision detection."];
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<file Name="base.xml" />
+<World>
+<NodeBase Size="100 100 100" ShowSize="1">
+</NodeBase>
+</World>

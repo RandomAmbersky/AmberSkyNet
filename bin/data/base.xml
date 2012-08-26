@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+
+<file Name="commonObjects.xml" />
+
+<BaseObject>
+<Axe    Type="Node3ds" MeshFileName="axe.3ds"    ModelScale="10" />
+<Column Type="Node3ds" MeshFileName="column.3ds" ModelScale="10" />
+<Gnome  Type="Node3ds" MeshFileName="gnome.3ds"  ModelScale="10" />
+<Stairs Type="Node3ds" MeshFileName="stairs.3ds" ModelScale="10" />
+<Helmet Type="Node3ds" MeshFileName="helmet.3ds" ModelScale="10" />
+<Sword  Type="Node3ds" MeshFileName="sword.3ds"  ModelScale="10" />
+<Chair  Type="Node3ds" MeshFileName="chair.3ds"  ModelScale="10" />
+</BaseObject>

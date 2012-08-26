@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="asnAll" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="..\..\bin\AmberSkyNetVR.dll" prefix_auto="0" extension_auto="0" />
+				<Option object_output="..\..\obj\" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="default;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add directory="..\..\include" />
+			<Add directory="..\..\extlib" />
+			<Add directory="..\..\src\asnCommon" />
+			<Add directory="..\..\src\asnDeviceGl\lib" />
+			<Add directory="..\..\src\asnFileSystem\lib\zlib" />
+			<Add directory="..\..\src\asnEngine" />
+			<Add directory="..\..\src\asnFileSystem" />
+			<Add directory="..\..\src\asnSound" />
+			<Add directory="..\..\src\asnNodeSprite" />
+			<Add directory="..\..\src\asnNode3ds" />
+			<Add directory="..\..\src\asnWorld" />
+			<Add directory="..\..\src\asnLog" />
+			<Add directory="..\..\src\asnDataParser" />
+			<Add directory="..\..\src\asnDeviceGl" />
+			<Add directory="..\..\src\asnDataParser\lib" />
+			<Add directory="..\..\src\asnNodeGUI_Simple" />
+			<Add directory="..\..\src\asnNodeRuler" />
+			<Add directory="..\..\src\asnNodeSLTerrain" />
+			<Add directory="..\..\src\asnScriptManager" />
+			<Add directory="..\..\src\asnScriptManager\lib\lua\include" />
+			<Add directory="..\..\src\asnScriptManager\lib\lua\src" />
+			<Add directory="..\..\src\asnPhysicManager" />
+		</Compiler>
+		<Linker>
+			<Add library="SDL" />
+			<Add library="SDL_image" />
+			<Add library="SDL_mixer" />
+			<Add library="opengl32" />
+			<Add library="glu32" />
+			<Add library="freetype6" />
+			<Add directory="..\..\extlib" />
+		</Linker>
+		<Unit filename="..\..\include\ASN_Params.cpp" />
+		<Unit filename="..\..\include\ASN_Params.h" />
+		<Unit filename="..\..\include\ASN_Type_template.h" />
+		<Unit filename="..\..\include\ASN_Types.h" />
+		<Unit filename="..\..\include\CVector.h" />
+		<Unit filename="..\..\include\EngineStarter.h" />
+		<Unit filename="..\..\include\IBaseObject.h" />
+		<Unit filename="..\..\include\ICamera.h" />
+		<Unit filename="..\..\include\IDataParser.h" />
+		<Unit filename="..\..\include\IDevice.h" />
+		<Unit filename="..\..\include\IDrawObject.h" />
+		<Unit filename="..\..\include\IEngine.h" />
+		<Unit filename="..\..\include\IEventListener.h" />
+		<Unit filename="..\..\include\IEventManager.h" />
+		<Unit filename="..\..\include\IFile.h" />
+		<Unit filename="..\..\include\IFileSystem.h" />
+		<Unit filename="..\..\include\ILog.h" />
+		<Unit filename="..\..\include\IMaterial.h" />
+		<Unit filename="..\..\include\INetProtocolHandler.h" />
+		<Unit filename="..\..\include\INetSupervisor.h" />
+		<Unit filename="..\..\include\INode.h" />
+		<Unit filename="..\..\include\INodeModifier.h" />
+		<Unit filename="..\..\include\IPhysicManager.h" />
+		<Unit filename="..\..\include\IResourceSystem.h" />
+		<Unit filename="..\..\include\IScriptManager.h" />
+		<Unit filename="..\..\include\ISound.h" />
+		<Unit filename="..\..\include\IWorld.h" />
+		<Unit filename="..\..\include\IWorld3D.h" />
+		<Unit filename="..\..\include\os_loadmodule.c">
+			<Option compilerVar="CPP" />
+		</Unit>
+		<Unit filename="..\..\include\os_loadmodule.h" />
+		<Unit filename="..\..\src\asnALL\asnAll.cpp" />
+		<Unit filename="..\..\src\asnCommon\3d_utils.cpp" />
+		<Unit filename="..\..\src\asnCommon\ASN_utils.cpp" />
+		<Unit filename="..\..\src\asnCommon\ASN_utils.h" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.cpp" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.h" />
+		<Unit filename="..\..\src\asnCommon\CNode.cpp" />
+		<Unit filename="..\..\src\asnCommon\CNode.h" />
+		<Unit filename="..\..\src\asnCommon\CTextlist.h" />
+		<Unit filename="..\..\src\asnCommon\IFileSource.h" />
+		<Unit filename="..\..\src\asnCommon\Parser_utils.cpp" />
+		<Unit filename="..\..\src\asnCommon\matrix.cpp" />
+		<Unit filename="..\..\src\asnCommon\os_deps.cpp" />
+		<Unit filename="..\..\src\asnCommon\quaternion.cpp" />
+		<Unit filename="..\..\src\asnDataParser\CDataParserXML.cpp" />
+		<Unit filename="..\..\src\asnDataParser\CDataParserXML.h" />
+		<Unit filename="..\..\src\asnDataParser\lib\tinyXML\tinystr.cpp" />
+		<Unit filename="..\..\src\asnDataParser\lib\tinyXML\tinystr.h" />
+		<Unit filename="..\..\src\asnDataParser\lib\tinyXML\tinyxml.cpp" />
+		<Unit filename="..\..\src\asnDataParser\lib\tinyXML\tinyxml.h" />
+		<Unit filename="..\..\src\asnDataParser\lib\tinyXML\tinyxmlerror.cpp" />
+		<Unit filename="..\..\src\asnDataParser\lib\tinyXML\tinyxmlparser.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CCamera.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CCamera.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CDeviceGL.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CDeviceGl.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CDrawObject.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CDrawObject.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CEvListCamLooker.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CEvListCamLooker.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CEvListCamWalker.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CEvListCamWalker.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CEventManagerSDL.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CEventManagerSDL.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CFontTTF.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CFontTTF.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CFontTexture.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CFontTexture.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CMaterial.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CMaterial.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CTexture.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CTexture.h" />
+		<Unit filename="..\..\src\asnDeviceGL\CTexturePack.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\CTexturePack.h" />
+		<Unit filename="..\..\src\asnDeviceGL\IFont.h" />
+		<Unit filename="..\..\src\asnDeviceGL\Primitive_libs.cpp" />
+		<Unit filename="..\..\src\asnDeviceGL\lib\GLee.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnDeviceGL\lib\GLee.h" />
+		<Unit filename="..\..\src\asnEngine\CEngine.cpp" />
+		<Unit filename="..\..\src\asnEngine\CEngine.h" />
+		<Unit filename="..\..\src\asnEngine\CPluginFactory.cpp" />
+		<Unit filename="..\..\src\asnEngine\CPluginFactory.h" />
+		<Unit filename="..\..\src\asnEngine\CResourceSystem.cpp" />
+		<Unit filename="..\..\src\asnEngine\CResourceSystem.h" />
+		<Unit filename="..\..\src\asnEngine\CTextlist.cpp" />
+		<Unit filename="..\..\src\asnFileSystem\CFile.cpp" />
+		<Unit filename="..\..\src\asnFileSystem\CFile.h" />
+		<Unit filename="..\..\src\asnFileSystem\CFileSource.cpp" />
+		<Unit filename="..\..\src\asnFileSystem\CFileSource.h" />
+		<Unit filename="..\..\src\asnFileSystem\CFileSourceZIP.cpp" />
+		<Unit filename="..\..\src\asnFileSystem\CFileSourceZIP.h" />
+		<Unit filename="..\..\src\asnFileSystem\CFileSystem.cpp" />
+		<Unit filename="..\..\src\asnFileSystem\CFileSystem.h" />
+		<Unit filename="..\..\src\asnFileSystem\CFileSystemASN.cpp" />
+		<Unit filename="..\..\src\asnFileSystem\CFileSystemASN.h" />
+		<Unit filename="..\..\src\asnFileSystem\CFileZIP.cpp" />
+		<Unit filename="..\..\src\asnFileSystem\CFileZIP.h" />
+		<Unit filename="..\..\src\asnFileSystem\lib\minizip\ioapi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnFileSystem\lib\minizip\unzip.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnFileSystem\lib\zlib\adler32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnFileSystem\lib\zlib\crc32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnFileSystem\lib\zlib\inffast.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnFileSystem\lib\zlib\inflate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnFileSystem\lib\zlib\inftrees.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnFileSystem\lib\zlib\zutil.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnLog\CLog.cpp" />
+		<Unit filename="..\..\src\asnLog\CLog.h" />
+		<Unit filename="..\..\src\asnNode3ds\CModel3ds.cpp" />
+		<Unit filename="..\..\src\asnNode3ds\CModel3ds.h" />
+		<Unit filename="..\..\src\asnNode3ds\CNode3ds.cpp" />
+		<Unit filename="..\..\src\asnNode3ds\CNode3ds.h" />
+		<Unit filename="..\..\src\asnNode3ds\lib\l3ds.cpp" />
+		<Unit filename="..\..\src\asnNode3ds\lib\l3ds.h" />
+		<Unit filename="..\..\src\asnNodeGUI_Simple\CNodeGUI_TextBox.cpp" />
+		<Unit filename="..\..\src\asnNodeGUI_Simple\CNodeGUI_TextBox.h" />
+		<Unit filename="..\..\src\asnNodeRuler\CNodeRuler.cpp" />
+		<Unit filename="..\..\src\asnNodeRuler\CNodeRuler.h" />
+		<Unit filename="..\..\src\asnNodeSLTerrain\CNodeSLTerrain.cpp" />
+		<Unit filename="..\..\src\asnNodeSLTerrain\CNodeSLTerrain.h" />
+		<Unit filename="..\..\src\asnNodeSLTerrain\SLTerrainDef.h" />
+		<Unit filename="..\..\src\asnNodeSprite\CNodeSprite.cpp" />
+		<Unit filename="..\..\src\asnNodeSprite\CNodeSprite.h" />
+		<Unit filename="..\..\src\asnScriptManager\CScriptManagerLua.cpp" />
+		<Unit filename="..\..\src\asnScriptManager\CScriptManagerLua.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lapi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lapi.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lcode.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lcode.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ldebug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ldebug.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ldo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ldo.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ldump.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lfunc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lfunc.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lgc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lgc.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\lauxlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\lbaselib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\ldblib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\liolib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\lmathlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\loadlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\lstrlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lib\ltablib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\llex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\llex.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\llimits.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lmem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lmem.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lobject.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lobject.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lopcodes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lopcodes.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lparser.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lparser.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lstate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lstate.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lstring.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lstring.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ltable.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ltable.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ltests.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ltm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\ltm.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lundump.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lundump.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lvm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lvm.h" />
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lzio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\src\asnScriptManager\lib\lua\src\lzio.h" />
+		<Unit filename="..\..\src\asnSound\CSoundSDL_mixer.cpp" />
+		<Unit filename="..\..\src\asnSound\CSoundSDL_mixer.h" />
+		<Unit filename="..\..\src\asnWorld\CModifierPack.cpp" />
+		<Unit filename="..\..\src\asnWorld\CModifierPack.h" />
+		<Unit filename="..\..\src\asnWorld\CModifiers.cpp" />
+		<Unit filename="..\..\src\asnWorld\CModifiers.h" />
+		<Unit filename="..\..\src\asnWorld\CWorld.cpp" />
+		<Unit filename="..\..\src\asnWorld\CWorld.h" />
+		<Unit filename="..\..\src\asnWorld\CWorldSimple3D.cpp" />
+		<Unit filename="..\..\src\asnWorld\CWorldSimple3D.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

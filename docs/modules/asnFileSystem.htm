@@ -1,0 +1,33 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80%><tr><td>
+<h1 class=header1 align=center>[ asnFileSystem ]</h1>
+<blockquote>
+</blockquote>
+
+<p>Плагин служит для реализации файловой системы. На данный момент файлы можно
+читать из обычной файловой системы и из архивов формата ZIP.
+</p>
+
+<p>Реализация FileSystemASN отличается от FileSystem тем, что в менеджере файлов
+FileSystemASN происходит сначала поиск в папке common, а потом уже - по всем другим папкам.
+Это полезно в том случае, если существуют общие ресурсы для разных миров...
+
+<p>Плагин реализует источники файлов (имена для стандартной переменной
+[FileManager]DataReader менеджера файловой системы):
+	<ul>
+	<li>FSDisk - возможность чтения из директорий диска
+	<li>FSZIP - возможность чтения из архивов ZIP
+	</ul>
+</p>
+
+
+</body>
+</html>

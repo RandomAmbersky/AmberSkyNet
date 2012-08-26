@@ -1,0 +1,30 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=../ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80%><tr><td>
+<h1 class=header1>[ INetProtocolHandler ]</h1>
+<blockquote>
+</blockquote>
+
+<p>Интерфейс обработчика сетевого протокола. 
+Сетевой менеджер ( <a href=INetSupervisor.htm> INetSupervisor</a> ) после
+получения пакетов данных вызывает функцию HandleMessage у обработчика, отвечающего
+за порт, по которому была получена информация. Обработчик сетевого протокола
+анализирует полученную информацию и если надо формирует 
+массив данных для ответа, и вызывает функцию отправки отправки пакетов данных
+у сетевого менеджера SendMsg, передавая в нее указатель на сформированный пакет данных.</p>
+
+<h3 class=header3 align=center>Указатели класса</h3>
+<li>Handler - указатель на функцию-обработчик данных в буфере. Вид функции:
+<pre>void hanlde_HTTP(INetProtocolHandler *handler, void *info);</pre>
+Где handler - указатель на обработчик, вызвавший эту функцию,<br>
+info - указатель на структуру, передаваемую обработчиком.
+
+</body>
+</html>

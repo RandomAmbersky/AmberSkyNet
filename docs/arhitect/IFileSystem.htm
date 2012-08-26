@@ -1,0 +1,29 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=../ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80%><tr><td>
+<h1 class=header1 align=center>[ IFileSystem ]</h1>
+<blockquote>
+</blockquote>
+
+<p>Интерфейс предназначен для реализации файловой системы.</p>
+
+<h3 class=header3 align=center>Переменные менеджера файловой системы</h3>
+Переменные на данный момент хранятся не в самом плагине, а читаются из глобальных
+переменных окружения Engine (GetEnvParam, SetEnvParam).
+<ul>
+<li>[FileManager]DataReader - имена классов-источников файлов, перечислены через запятую:
+<li>[Paths]DataPath - путь к "корневой" папке данных. Поиск данных будет производится только в данной
+папке (ведь правда, нам не надо чтобы движок мог шарится по всем дискам компьютера, да?)
+</ul>
+</p>
+
+
+</body>
+</html>

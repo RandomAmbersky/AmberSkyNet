@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<file Name="common_chess.xml" />
+<NodeBase ShowSize="0">
+
+  <!--NodeRuler Type="NodeRuler" Pos="0 0 0"/ --> <!-- horisontal -->
+  <!--NodeRuler Type="NodeRuler" Pos="0 0 0" Rot="0 0 90"/--> <!-- horisontal,OY -->
+  <!--NodeRuler Type="NodeRuler" Pos="0 0 0" Rot="0 -90 0"/--> <!-- vertical -->
+  <!--NodeRuler Type="NodeRuler" Pos="0 100 52" Length=175 /-->
+
+  <NodeGrid2D Name="Setka" Pos="10 10 10" Rot="0 0 0" Size="100 100 10" NumX="8" NumY="8" ShowGrid="0" Rescale="1" />
+
+  <Chessboard Pos="10 10 9.5" Rot="0 0 0" Size="100 100 10"  />
+
+</NodeBase>

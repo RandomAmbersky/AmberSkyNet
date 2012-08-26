@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="asnEngine" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Windows">
+				<Option platforms="Windows;" />
+				<Option output="..\..\bin\binw\AmberSkyNetVR.dll" prefix_auto="0" extension_auto="0" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+			</Target>
+			<Target title="Linux">
+				<Option platforms="Unix;" />
+				<Option output="..\..\bin\binl\plugins\libAmberSkyNetVR.so" prefix_auto="0" extension_auto="0" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Linker>
+					<Add library="SDL" />
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Windows;Linux;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add directory="..\..\include" />
+			<Add directory="..\..\src\asnCommon" />
+			<Add directory="..\..\src\asnEngine\lib" />
+			<Add directory=".\extlib" />
+		</Compiler>
+		<Linker>
+			<Add library=".\extlib\libSDL.dll.a" />
+		</Linker>
+		<Unit filename="..\..\include\ASN_Params.cpp" />
+		<Unit filename="..\..\include\ASN_Type_template.h" />
+		<Unit filename="..\..\include\ASN_Types.h" />
+		<Unit filename="..\..\include\IBaseObject.h" />
+		<Unit filename="..\..\include\IDataParser.h" />
+		<Unit filename="..\..\include\IEngine.h" />
+		<Unit filename="..\..\include\IEventListener.h" />
+		<Unit filename="..\..\include\IFileSystem.h" />
+		<Unit filename="..\..\include\IManager.h" />
+		<Unit filename="..\..\include\INodeModifier.h" />
+		<Unit filename="..\..\include\IResourceSystem.h" />
+		<Unit filename="..\..\include\IWorld.h" />
+		<Unit filename="..\..\include\os_loadmodule.cpp" />
+		<Unit filename="..\..\src\asnCommon\ASN_Types_internal.h" />
+		<Unit filename="..\..\src\asnCommon\ASN_utils.cpp" />
+		<Unit filename="..\..\src\asnCommon\ASN_utils.h" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.cpp" />
+		<Unit filename="..\..\src\asnCommon\CBaseObject.h" />
+		<Unit filename="..\..\src\asnCommon\IAsnGenerator.h" />
+		<Unit filename="..\..\src\asnCommon\IFileSource.h" />
+		<Unit filename="..\..\src\asnCommon\os_deps.cpp" />
+		<Unit filename="..\..\src\asnEngine\CEngine.cpp" />
+		<Unit filename="..\..\src\asnEngine\CEngine.h" />
+		<Unit filename="..\..\src\asnEngine\CPluginFactory.cpp" />
+		<Unit filename="..\..\src\asnEngine\CPluginFactory.h" />
+		<Unit filename="..\..\src\asnEngine\CResourceSystem.cpp" />
+		<Unit filename="..\..\src\asnEngine\CResourceSystem.h" />
+		<Unit filename="..\..\src\asnEngine\CTextlist.cpp" />
+		<Unit filename="..\..\src\asnEngine\asnDataParser\CDataParserXML.cpp" />
+		<Unit filename="..\..\src\asnEngine\asnDataParser\CDataParserXML.h" />
+		<Unit filename="..\..\src\asnEngine\asnDataParser\asnDataParser.h" />
+		<Unit filename="..\..\src\asnEngine\asnDataParser\lib\tinyXML\tinystr.cpp" />
+		<Unit filename="..\..\src\asnEngine\asnDataParser\lib\tinyXML\tinystr.h" />
+		<Unit filename="..\..\src\asnEngine\asnDataParser\lib\tinyXML\tinyxml.cpp" />
+		<Unit filename="..\..\src\asnEngine\asnDataParser\lib\tinyXML\tinyxml.h" />
+		<Unit filename="..\..\src\asnEngine\asnDataParser\lib\tinyXML\tinyxmlerror.cpp" />
+		<Unit filename="..\..\src\asnEngine\asnDataParser\lib\tinyXML\tinyxmlparser.cpp" />
+		<Unit filename="..\..\src\asnEngine\asnEngine.cpp" />
+		<Unit filename="..\..\src\asnEngine\asnFileSystem\CFile.cpp" />
+		<Unit filename="..\..\src\asnEngine\asnFileSystem\CFile.h" />
+		<Unit filename="..\..\src\asnEngine\asnFileSystem\CFileRemote.cpp" />
+		<Unit filename="..\..\src\asnEngine\asnFileSystem\CFileRemote.h" />
+		<Unit filename="..\..\src\asnEngine\asnFileSystem\CFileSource.cpp" />
+		<Unit filename="..\..\src\asnEngine\asnFileSystem\CFileSource.h" />
+		<Unit filename="..\..\src\asnEngine\asnFileSystem\CFileSystem.cpp" />
+		<Unit filename="..\..\src\asnEngine\asnFileSystem\CFileSystem.h" />
+		<Unit filename="..\..\src\asnEngine\asnFileSystem\CFileSystemASN.cpp" />
+		<Unit filename="..\..\src\asnEngine\asnFileSystem\CFileSystemASN.h" />
+		<Unit filename="..\..\src\asnEngine\asnFileSystem\asnFileSystem.h" />
+		<Unit filename="..\..\src\asnEngine\asnLog\CLog.cpp" />
+		<Unit filename="..\..\src\asnEngine\asnLog\CLog.h" />
+		<Unit filename="..\..\src\asnEngine\asnLog\asnLog.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

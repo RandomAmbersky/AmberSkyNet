@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<file Name="base.xml" />
+
+<WorldSimple3D >
+
+<CameraSimple>
+  <EvListCamWalker />
+  <EvListCamLooker />
+</CameraSimple>
+
+<NodeBase ShowSize="1" >
+
+  <NodeGrid2D Pos="0 0 50" Size="215 215 10" NumX="10" NumY="10" ShowGrid="1" />
+
+  <NodeRuler Pos="0 0 0" /> <!-- horisontal -->
+  <NodeRuler Pos="0 0 0" Rot="0 0 90" /> <!-- horisontal,OY -->
+  <NodeRuler Pos="0 0 0" Rot="0 -90 0" />  <!-- vertical -->
+  <NodeRuler Pos="0 100 52" Length=175 />
+
+  <!--LogoAmberSkyNet Pos="-10 10 105" /-->
+  <LogoPanel Pos="-10 10 105" />
+
+  <LogoPanel Pos="-10 20 105" />
+
+  <LogoPanel Pos="-10 30 105" />
+
+  <LogoPanel Pos="-10 40 105" />
+
+
+  <Node3ds Name="column1" Pos="822 128 50.5" MeshFileName="column.3ds" ModelScale="20" />
+  <Node3ds Name="column2" Pos="122 128 50.5" MeshFileName="column.3ds" ModelScale="20" />
+
+  <NodeHeightMap Name="myTerrain" Pos="0 0 0" Size="10000 10000 25" HeightMap="4.jpg" SizeFromHeightMap="1" Detail="100" />
+
+  <NodeSLTerrain Type="NodeSLTerrain" Pos="0 0 0"
+     TerrainFileName="brilliant_terrain.raw" TextureFileName="grass.jpg" ShowWater="0" WaterOnly="0" WaterHeight="5" NumPointReduction="24" />
+
+  <NodeSLTerrain Type="NodeSLTerrain" Pos="0 0 0"
+     TerrainFileName="brilliant_terrain.raw" TextureFileName="grass.jpg" ShowWater="0" WaterOnly="0" WaterHeight="5" NumPointReduction="24" />
+
+  <NodeSLTerrain Type="NodeSLTerrain" Pos="10 10 10"
+     TerrainFileName="brilliant_terrain.raw" TextureFileName="grass.jpg" ShowWater="0" WaterOnly="0" WaterHeight="5" NumPointReduction="24" />
+
+  <Column Pos="222 128 50.5" ModelScale="10">
+
+</NodeBase>
+</World >

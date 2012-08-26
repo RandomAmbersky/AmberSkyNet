@@ -1,0 +1,26 @@
+<!---                               +                                      --->
+<html>
+<head>
+<title>[ AmberSkyNet VR ]</title>
+<link rel=stylesheet type=text/css href=../ambernet.css>
+</style>
+</head>
+<body>
+<center>
+<table width=80%><tr><td>
+<h1 class=header1>[ INetSupervisor ]</h1>
+<blockquote>
+</blockquote>
+
+<p>Интерфейс менеджера сети NetSupervisor служит для обмена информацией по сети.
+На данный момент менеджер реализует только
+открытие/закрытие сокетов TCP/IP и получение/отправку информации. Конкретные 
+высокоуровневые протколы реализуются плагинами-обработчиками (наследуемыми от интерфейсного класса <a href=INetProtocolHandler.htm>INetProtocolHandler</a>) принятых пакетов информации,
+которые разбирают полученный по сети массив информации и отправляют ответ, используя
+для этого функции cетевого менеджера через интерфейсный класс INetSupervisor.</p>
+
+<h3 class=header3>Переменные</h3>
+BufferSize - размер приемного буфера сообщения, по умолчанию равен 1024 байт.
+
+</body>
+</html>
