@@ -17,4 +17,7 @@ cmake_install.cmake
 asn*.dll
 ambernet_portable.zip
 AmberCannoidGame
+bin/binw/*.dll
+Thumbs.db
+projects_ext/AmberCannonid/binw/*.dll
 *.exe
